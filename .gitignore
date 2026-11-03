@@ -1,0 +1,14 @@
+# runtime data and logs
+storage/leads/*
+!storage/leads/.htaccess
+storage/ratelimit/*
+!storage/ratelimit/.htaccess
+storage/*.log
+storage/*.jsonl
+*.log
+
+# local tooling
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

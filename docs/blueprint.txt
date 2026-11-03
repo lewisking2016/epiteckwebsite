@@ -1,0 +1,341 @@
+EPiTEK SOLUTIONS
+
+Epitex Solutions
+
+Defense, aviation and mission-technology integration
+
+Website Architecture and
+Optimization Blueprint
+
+epitexsolution.africa - East Africa defense and aviation technology integrator
+
+Prepared for  Epitex Solutions leadership
+Email         contact@epitexsolution.africa
+Document ID   EPX-WEB-001
+Version       1.0 (draft for review)
+Status        Draft for management review
+Date          2026-11-02
+Issued        2026-11-02
+
+DRAFT
+
+Prepared for Epitex Solutions | Confidential - for the named recipient only. Not for onward distribution without
+permission.
+EPiTEK SOLUTIONS                                                                               EPX-WEB-001 · Website Architecture and Optimization Blueprint
+
+1. Executive Summary
+
+This blueprint defines the architecture, content hierarchy and technical optimization strategy for epitexsolution.africa. Epitex
+Solutions acts as the regional distributor, system integrator and lifecycle maintainer in East Africa for Tier-1 defense, aerospace and
+high-technology manufacturers. The regional footprint is anchored on STM (Savunma Teknolojileri Mühendislik ve Ticaret A..).
+
+The website must position Epitex Solutions as the regional engineering backbone, not a commercial broker. It must show that
+Epitex can deploy, maintain and support autonomous systems, naval technologies, cyber intelligence and mission software for
+sovereign defense agencies and civil authorities.
+
+Item                               Detail
+Domain                             epitexsolution.africa
+Pages in scope                     5 (Home, Distributor and Integrator Hub, Partnerships, Services, Contact)
+Audience                           Ministries of defense, air forces, civil aviation and border authorities, procurement officers
+Primary conversion                 Technical demo request and category-specific briefings
+Territories                        Kenya, Uganda, Tanzania, Rwanda, Ethiopia
+Optimization tracks                SEO, Generative Engine Optimization (GEO), Conversion Tool Optimization (CTO)
+
+1.1 Items to verify before publishing
+
+Several statements in the source brief are claims that need evidence before they go live. They are tagged [V] in this document.
+
+Tag                                Meaning
+
+[A]                                Approved baseline
+
+[P]                                Proposed content or design
+
+[V]                                Factual claim to be verified with evidence before publication
+
+Ref           Claim to verify                          Why it matters
+
+V-1           "Authorized regional partner" and        Needs a signed agreement or written authorization. Misstating it is a legal and reputational
+
+              "authorized distributor" status for STM  risk.
+
+V-2           Source link st-modelisation.fr           That domain belongs to a French company, ST Modélisation, which is not the Turkish defense
+                                                       company STM. Use the correct STM source (stm.com.tr) and confirm with STM.
+
+V-3           99.9% operational uptime target          Needs a defined measurement basis, or should be reworded as a service objective.
+
+V-4           ISO 9001 and AS9100                      State "aligned" only unless certificates are held. Show certificate numbers if certified.
+
+V-5           Test beds, factory-trained engineers, field Must exist or be worded as planned capability.
+
+              units
+
+V-6           FocusFlite deployed on 75+ platforms     Confirm the figure and wording with the manufacturer.
+
+V-7           Brand spelling                           The company name in this brief is Epitex, while the logo file reads EPiTEK. Confirm the final
+                                                       spelling for the site, logo and domain.
+
+2. Brand and Visual Direction
+
+The visual system follows the Epitex logo: a deep navy wordmark and a bright blue parallelogram carrying white lettering.
+
+Element              Value                                             Use
+Primary navy         #294776                                           Headings, navigation, footer, hero overlays
+Accent blue          #207EB0 (logo); #3AA0D5 (lighter, for             Buttons, links, highlights, section markers
+                     contrast on navy)
+White                #FFFFFF                                           Text on dark fills, card backgrounds
+Navy tint            Navy at 10%                                       Table headers, card fills, alternating rows
+Ink                  #1F2A27                                           Body text
+
+· Use the slanted parallelogram from the logo as a recurring shape for buttons, section tags and image masks.
+· Use a geometric sans-serif for headings (the logo uses Century Gothic) and a neutral sans for body copy.
+
+Confidential -- for the named recipient only. Not for onward distribution without permission.                                            Page 2 of 6
+EPiTEK SOLUTIONS                                                                               EPX-WEB-001 · Website Architecture and Optimization Blueprint
+
+· Keep imagery technical and restrained: terrain overlays, flight vectors, schematic line work. Avoid stock military clichés.
+· Every page carries a persistent domain switcher and a trust strip (see section 5.3).
+
+3. Site Architecture
+
+Page                            URL               Purpose                                                Primary CTA
+                                                  Positioning, competencies, partner spotlight, metrics  Explore Capabilities
+Home                            /                 Logistics, integration, sustainment, quality           Initiate SLA Consultation
+
+Distributor and Integrator Hub  /distributor-int  Mandate, technology portfolio, joint execution         Request Tactical Data Sheet
+                                egration
+                                                  Academies, 24/7 support desk, advisory                 Initiate SLA Consultation
+Partnership and Representation /partnerships-st   Secure enterprise inquiry and demo booking             Request Technical Demo
+                                       m
+
+Training, Services and Support /services
+
+Contact and Demo Request        /contact
+
+URLs stay short and readable, with no query-string noise. The domain switcher filters content across all pages by four operational
+domains: Air and Autonomous Systems, Aviation Software and Mission Planning, Cyber, C4ISR and Command Systems, and
+Integrated Support and Depot Maintenance.
+
+4. Page-by-Page Content
+
+4.1 Home Page (/)
+
+Hero section. A high-impact technical visual with East African terrain overlays and autonomous flight vectors.
+
+Element                         Content
+Headline                        East Africa's Premier Defense and Aviation Technology Integrator
+Subheadline                     Bridging global aerospace defense innovations with sovereign East African operational requirements. Authorized
+                                regional partner for STM defense solutions. [V-1]
+Primary button                  Explore Capabilities
+Secondary button                Request Technical Demo
+
+Executive positioning statement. A direct narrative on Epitex's role in reducing supply chain delays, meeting sovereign security
+requirements and deploying NATO and ICAO-standardized hardware.
+
+Core competencies matrix.
+
+Competency                           Description
+End-to-End Procurement               Turnkey hardware and software acquisition that complies with national defense procurement frameworks
+Systems Integration                  Tactical data links, unified Command and Control (C2), and sensor-to-shooter integration into existing regional
+                                     infrastructure
+Standards Compliance                 Adherence to ICAO, Eurocontrol and NATO-interoperable engineering parameters
+Lifecycle Maintenance and MRO        Regional depot-level maintenance, field dispatch and a guaranteed spare parts pipeline
+
+Strategic partner spotlight (STM). A visual module showing the tactical UAS platforms (KARGU, TOGAN, BOYGA, ALPAGU-B), the
+FocusFlite digital flight planning architecture and naval platform design.
+
+Regional impact metrics.
+
+Metric                               Value                                                                      Status
+Sovereign territories covered        5: Kenya, Uganda, Tanzania, Rwanda, Ethiopia                               [V]
+Operational uptime target            99.9% for deployed digital mission assets and communication relays         [V-3]
+Field engineers                      Locally stationed, factory-trained technical staff                         [V-5]
+
+Site footer. Operational address, emergency technical dispatch lines, sovereign procurement portals, compliance declarations and
+authenticated OEM partner links.
+
+Confidential -- for the named recipient only. Not for onward distribution without permission.                           Page 3 of 6
+EPiTEK SOLUTIONS                                                                               EPX-WEB-001 · Website Architecture and Optimization Blueprint
+
+4.2 Distributor and Integrator Hub (/distributor-integration)
+
+Section                                    Content
+
+Regional distribution logistics            Frameworks for end-user monitoring, secure military transit, customs brokerage and clearance across East
+                                           African Community (EAC) borders
+
+System integration architecture            Methods for integrating imported hardware into domestic sovereign defense infrastructure
+
+Lifecycle sustainment and in-country       The Regional Maintenance Depot: spare parts warehousing, battery management for tactical UAS,
+support                                    scheduled mechanical overhauls and mobile engineering team deployment
+
+Compliance, verification and quality control ISO 9001 and AS9100-aligned processes, compliance tracking for military avionics and export controls [V-4]
+
+Integration methods covered on this page:
+· Sensor integration with regional air traffic and military radar nodes.
+· Software-Defined Radio (SDR) and encrypted communication link configuration.
+· Command post telemetry integration for real-time tactical observation.
+
+4.3 Partnership and Representation (/partnerships-stm)
+
+Authorized representation mandate. A statement of Epitex's designated authority as STM's primary integration and technical
+support vehicle across East Africa. Publish only once the authorization is documented. [V-1] [V-2]
+
+Technology portfolio.
+
+Domain                           Systems and platforms    Primary operational applications
+                                 KARGU, ALPAGU-B, TOGAN,
+Tactical Autonomous              BOYGA                    Loitering strike munitions, GNSS-denied reconnaissance, precision mortar payload drop,
+Systems                          FocusFlite               asymmetric perimeter surveillance
+
+Aviation and Mission             C4ISR, Naval Platform    Digital moving map, situational awareness, mission route planning, cockpit situational
+Software                         Engineering              feeds, reported on 75+ platforms [V-6]
+
+Command, Cyber and                                        Coastal surveillance, MLGEM corvette integration, sovereign decision-support engines,
+Naval                                                     hardened infrastructure cyber protection
+
+Joint operational execution. Epitex's role in live firing demonstrations, localized payload adaptation for East African atmospheric
+profiles and sovereign operator training. Offensive-capability content on public pages should be reviewed against export-control
+and licensing rules before publication.
+
+4.4 Training, Services and Support (/services)
+
+Service                                    Scope
+
+Tactical UAS Pilot Certification           Simulation and live flight training covering emergency recovery, payload management and swarm
+                                           command
+
+Avionics Maintenance Engineering           Line-replaceable unit (LRU) diagnostics, field sensor calibration and structural repair protocols
+
+ICAO and Eurocontrol Compliance Modules Training for air traffic coordinators and defense staff on shared airspace deconfliction
+
+24/7 Technical Support Desk                SLA tiers with response windows; target of under 2 hours for Tier 1 critical mission platform failures
+
+Technical Advisory and Defense Consulting  Needs analysis for ministries: border security perimeters, anti-poaching operations, maritime domain
+                                           awareness
+
+4.5 Contact and Demo Request (/contact)
+
+4.5.0 Enterprise inquiry and demonstration form
+
+Field group                       Fields
+
+Identity                          Name, official title, verified sovereign or corporate organization
+
+Technology interest               Tactical loitering munitions, reconnaissance UAS, FocusFlite avionics software, C4I infrastructure, custom maintenance
+                                  contracts
+
+Project                           Operating environment, project timeline
+
+Demo type                         Virtual architecture review or in-country field demonstration
+
+Confidential -- for the named recipient only. Not for onward distribution without permission.                                                 Page 4 of 6
+EPiTEK SOLUTIONS                                                         EPX-WEB-001 · Website Architecture and Optimization Blueprint
+
+4.5.1 Regional node directory                          Detail
+                                                       To be confirmed (address and map coordinates)
+ Item                                                  To be confirmed (named person)
+ Regional headquarters                                 contact@epitexsolution.africa
+ Technical support contact                             To be confirmed
+ Primary secure inquiries
+ Phone and encrypted email protocols
+
+5. Strategic and Technical Analysis
+
+5.1 STM alignment
+
+Capability            What it offers                                                           East African application
+
+Autonomous            Onboard computer vision and edge-AI keep orientation, target             Border patrol along complex boundaries and operations in
+tactical drones       acquisition and return-to-base when satellite navigation is jammed       dense or mountainous terrain
+(KARGU, TOGAN)        or degraded
+
+FocusFlite            Modular mission software providing situational awareness for             Modernizing legacy cockpits in regional air forces without full
+                      rotary and fixed-wing platforms                                          airframe replacement, which lowers capital cost
+
+5.2 Strategic takeaway for the web presence
+
+The site must counter the perception that Epitex is only an intermediary. Content should repeatedly show local engineering
+validation: test beds, factory-trained software engineers and field deployment units able to deliver STM capability to regional
+procurement authorities. Each of these statements needs supporting evidence [V-5].
+
+5.3 Trust and verification anchors
+· Compliance badges: ICAO interoperability, Eurocontrol alignment, ISO status and verified STM partner seal (only where
+
+    substantiated).
+· A dedicated Procurement Compliance notice covering sovereign acquisition rules, dual-use export authorizations and secure
+
+    communications protocols.
+· A persistent domain switcher on every page, with the four operational domains listed in section 3.
+
+6. Technical Optimization Strategy
+
+6.1 Search Engine Optimization (SEO)
+
+Tier                  Focus           Target keywords
+
+Tier 1 Core           Brand and       East Africa defense technology integrator; STM distributor Kenya East Africa; tactical UAV systems East
+                      category        Africa
+
+Tier 2 Technical      Capability      ICAO compliant aviation integration Nairobi; FocusFlite tactical mission software East Africa; loitering
+                                      munition supplier Africa
+
+Tier 3 Institutional  Buyer need      Military UAV maintenance depot Kenya; border surveillance systems East Africa
+
+Area                  Requirement
+URL structure         Clean directory hierarchy, for example /partnerships-stm and /distributor-integration
+Structured data       JSON-LD for Organization, LocalBusiness and GovernmentService, covering legal entity, geographic service area and brand
+                      associations
+Performance           WebP images, deferred CSS and JavaScript, static generation, Largest Contentful Paint under 1.2 seconds
+
+6.2 Generative Engine Optimization (GEO)
+
+The aim is reliable citation by AI platforms such as Gemini, Perplexity and ChatGPT.
+
+Confidential -- for the named recipient only. Not for onward distribution without permission.                            Page 5 of 6
+EPiTEK SOLUTIONS                                                                               EPX-WEB-001 · Website Architecture and Optimization Blueprint
+
+Technique              Implementation
+Entity coupling        Bind entities in schema and content: Epitex Solutions isAuthorizedDistributorOf STM, and Epitex Solutions
+                       operatesWithin Kenya, Uganda, Tanzania, Rwanda and Ethiopia (only once V-1 is confirmed)
+Direct answer headers  Question headings with a short, factual answer paragraph beneath
+Data density           Flat lists and tables with parseable specifications: mission ranges, payloads, operational standards
+
+Example direct answer header: Who is the authorized distributor and integrator of STM defense technology in East Africa? Answer
+paragraph: Epitex Solutions is the authorized regional distributor, system integrator and maintenance provider for STM across East
+Africa, serving Kenya, Uganda, Tanzania, Rwanda and Ethiopia with direct lifecycle support. [V-1]
+
+6.3 Conversion Tool Optimization (CTO) and UX
+
+Product category        Contextual call to action
+
+UAV platforms           Request Tactical Data Sheet
+
+FocusFlite              Book Software Architecture Briefing
+
+Maintenance services    Initiate SLA Consultation
+
+General                 Request Technical Demo
+
+7. Implementation Plan
+
+Phase             Work                                                     Output                    Owner              Target
+1. Verify         Close items V-1 to V-7, confirm brand spelling           Verified claims register  Epitex leadership  To be agreed
+2. Design         Brand kit, page templates, domain switcher, trust strip  Approved design           Design lead        To be agreed
+                                                                           system
+3. Content        Write and review all five pages, compliance notice       Approved copy             Content lead       To be agreed
+4. Build          Static site, structured data, forms, analytics           Staging site              Web engineer       To be agreed
+5. Optimize       SEO and GEO checks, speed testing, accessibility         Test report               Web engineer       To be agreed
+6. Launch         Go-live, monitoring, first-month review                  Live site                 Epitex leadership  To be agreed
+
+8. Acceptance Criteria
+
+· Every [V] item is closed with evidence, or the related wording is removed or softened.
+· All five pages are live at the URLs listed in section 3.
+· Largest Contentful Paint is under 1.2 seconds on the test profile.
+· Structured data validates without errors.
+· The contact form reaches contact@epitexsolution.africa and the secure intake workflow.
+· Colours and logo usage match the brand direction in section 2.
+
+Confidential -- for the named recipient only. Not for onward distribution without permission.                           Page 6 of 6
+

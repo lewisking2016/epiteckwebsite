@@ -39,9 +39,20 @@ ErrorDocument 404 /404.php
 </FilesMatch>
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Block direct access to internal includes
+
+  # Force HTTPS (cPanel & Reverse Proxy compatible)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-SSL} !on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Exclude cgi-bin
+  RewriteRule ^cgi-bin/ - [L]
+
+  # Block direct access to internal includes and storage
   RewriteRule ^includes/ - [F,L]
   RewriteRule ^storage/ - [F,L]
+
   # Clean URLs: /services -> /services/ (directory index handles the rest)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

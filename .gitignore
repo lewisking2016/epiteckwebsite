@@ -12,3 +12,5 @@ storage/*.jsonl
 Thumbs.db
 .vscode/
 .idea/
+.freebuff/
+cgi-bin/

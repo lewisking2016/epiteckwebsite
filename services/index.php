@@ -46,7 +46,7 @@ require dirname(__DIR__) . '/includes/header.php';
       <h1>Capability is a team, not a crate</h1>
       <p class="PageHero_Lead">Five services that keep an air force operating: avionics maintenance, compliance training, operator certification, a staffed support desk and technical advisory.</p>
       <div class="PageHero_Act">
-        <a class="Btn Btn--light" href="<?= e(url('/contact?topic=sla')) ?>">Initiate an SLA consultation <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="Btn Btn--light" href="<?= e(url('/apply')) ?>">Apply for training <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="Btn Btn--ghost-light" href="#support-desk">Support tiers</a>
       </div>
       <div class="PageHero_Meta">

@@ -49,6 +49,7 @@ $shareImage = url('assets/img/og-image.png');
 <?php endif; ?>
 <link rel="stylesheet" href="<?= e(asset('assets/css/fonts.css')) ?>">
 <link rel="stylesheet" href="<?= e(asset('assets/css/main.css')) ?>">
+<link rel="stylesheet" href="<?= e(asset('assets/css/extras.css')) ?>">
 <script nonce="<?= e($nonce) ?>">document.documentElement.classList.replace('no-js','js');</script>
 <?php if (!empty($page['schema'])): ?>
 <script type="application/ld+json" nonce="<?= e($nonce) ?>"><?= json_encode($page['schema'], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP) ?></script>
@@ -128,6 +129,7 @@ $shareImage = url('assets/img/og-image.png');
     <a href="<?= e(url('/distributor-integration')) ?>">Distributor hub <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a href="<?= e(url('/partnerships-stm')) ?>">Partnership <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a href="<?= e(url('/services')) ?>">Services <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/apply')) ?>">Apply for training <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a href="<?= e(url('/contact')) ?>">Contact <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </nav>
   <div class="Drawer_Domains">

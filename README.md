@@ -129,8 +129,8 @@ Also replace before launch:
 
 ## 9. Design notes
 
-- Palette: navy `#12294A` / `#0A1A2F`, brand `#294776`, accent `#207EB0` (text-grade `#1A6A96`),
-  sky `#3AA0D5`, backgrounds `#F4F8FC` and `#E7F0F8`.
+- Palette: EPiTEK logo blue `#294776` with deep surfaces `#14233D` / `#1B3055`, accent `#207EB0`
+  and `#3F9ED2` for dark-surface highlights, neutral backgrounds `#F7F8F8` and `#EEF1F2`.
 - Type: Bricolage Grotesque (display), Source Sans 3 (body), JetBrains Mono (labels), self-hosted in
   `assets/fonts`.
 - Artwork is built by `tools/build_figures.mjs` with the vendored Anatomy isometric kit (MIT):
@@ -143,7 +143,106 @@ Also replace before launch:
 
 ## 10. What is not included
 
-- No CMS, customer portal, authenticated area or downloadable data sheets (release is
-  eligibility-screened, as stated on the site).
-- No analytics or cookie banner; add analytics only with the client's consent policy.
-- Mail transport is not configured out of the box (see §5).
+- No CMS and no downloadable data sheets (release is eligibility-screened, as stated on the site).
+  The authenticated area is the staff console described in §11.
+- No analytics or advertising tags. The two browser preferences used by the site (cookie-notice
+  dismissal, nothing else) are documented on `/cookies`.
+- Mail transport is not configured out of the box (see §5). The console's newsletter and
+  outbound-mail module is not built yet; it lands once SMTP credentials exist.
+
+## 11. Admin console (dashboard)
+
+A staff-only dashboard at `/epiadmin/`. Same PHP application, no framework and no extra service: it
+reads the MySQL database below, or a SQLite file for local work. The path is deliberately not linked
+from the public site and is disallowed in `robots.txt`; `/admin` does not exist.
+
+### What it contains
+
+| Module | What it does |
+| --- | --- |
+| Overview | Counts for 30/7/1 days, open work, pipeline by stage, latest enquiries and applications, recent activity, and a traffic summary read from the Apache access log. |
+| Enquiries | Every contact-form submission: filter by status, country or text, open a record, change stage, assign an owner, add internal notes, export CSV. |
+| Applications | Two intake types in one pipeline — training enrolment and organisation/RFP requests — with type-specific stages, notes, ownership and CSV export. |
+| Activity | Audit log of sign-ins, stage changes, notes, password changes and exports, with the user and timestamp. |
+| Security | Change your own password, see the account details and the controls protecting the console. |
+
+Roles: `owner` (everything), `editor` (no user management), `viewer` (read-only).
+
+### Local setup
+
+```bash
+php tools/migrate.php                                  # create/upgrade tables in storage/app.sqlite
+php tools/create_admin.php admin@your-domain "Console Admin" owner --username=admin
+php tools/import_leads.php                             # optional: pull existing JSONL enquiries in
+```
+
+The seeded console account for this project is username `admin`, password `epiadmin123`. It is a
+bootstrap credential: sign in once and set your own password on the Security page — the console
+shows a warning until you do. To reset or add another account:
+
+```bash
+php tools/create_admin.php you@your-domain "Your Name" owner --username=you --password='…'
+```
+
+Then open `http://127.0.0.1:8123/epiadmin/`. With no credentials file the console uses
+`storage/app.sqlite`, which is git-ignored. Delete that file to start empty.
+
+### Server setup (cPanel)
+
+1. Create a MySQL database and user in cPanel, and grant the user all privileges on it.
+2. Copy `config/db.example.php` to `config/db.local.php` and fill in the four values. The file is
+   git-ignored and `config/` is denied to the web by `.htaccess`.
+3. Run `php tools/migrate.php`, then `php tools/create_admin.php …` (cPanel → Terminal, or SSH).
+4. Optional traffic panel: add `config/analytics.local.php` returning
+   `['access_log' => '/home/USER/logs/DOMAIN.access.log']`.
+5. Sign in at `https://your-domain/epiadmin/` with the username you created, then change the
+   password on the Security page.
+
+### Public pages that feed it
+
+- `/apply` — training application and organisation briefing request, both landing in the
+  Applications module. Linked from the services hero, the training section and the footer.
+- `/contact` — unchanged behaviour (JSONL + optional mail) and now also mirrored into Enquiries.
+
+### Security notes
+
+- Passwords are hashed with `password_hash` (bcrypt); sign-in accepts the username or the account
+  email. Sessions use HttpOnly, SameSite=Lax cookies, `use_strict_mode`, regenerate on sign-in and
+  are destroyed on sign-out.
+- Every write is POST + CSRF-checked and rate-limited; failed sign-ins are limited to six per fifteen
+  minutes per connection (successful sign-ins are never throttled).
+- Read-only roles cannot change stage, owner or notes — enforced server-side, not in the template.
+- The console sends `noindex, nofollow`, `no-store`, `X-Frame-Options: DENY`, HSTS over HTTPS and a
+  self-only Content Security Policy, and never exposes the database credentials or lead files.
+- CSV exports neutralise spreadsheet formula injection (`=`, `+`, `-`, `@`) in every cell.
+
+### Code layout
+
+| File | Responsibility |
+| --- | --- |
+| `includes/repository.php` | Every read and write for enquiries, applications, notes, activity, exports and dashboard aggregates. Pages call these instead of building SQL. |
+| `includes/http.php` | `redirect()`, `paginate()`, `require_post()`, small request helpers. |
+| `includes/admin_auth.php` | Session, sign-in, roles, password changes, audit trail, flashes, console URL builder. |
+| `epiadmin/_layout.php` | Chrome, icons, navigation with live counts, page header, pager, pills, empty states. |
+| `epiadmin/*.php` | Thin controllers: authenticate, call the repository, render. |
+
+## 12. EPI, the site assistant
+
+EPI is a fixed-answer assistant in the bottom-right corner of every public page: the visitor picks a
+question and EPI replies from `includes/bot.php`. There is no text field, no model call and no
+network request, so every answer is reviewed content and cannot invent a claim. Answers link to the
+matching page. Behaviour lives in `assets/js/bot.js`, styles in `assets/css/extras.css`.
+
+To change an answer, edit the array in `includes/bot.php`; the markup and the chips update with it.
+
+## 13. Legal and policy pages
+
+| Page | Purpose |
+| --- | --- |
+| `/privacy` | What the forms collect, why, retention, access and deletion. |
+| `/cookies` | Every cookie and local-storage entry, its purpose and lifetime, and how to remove it. |
+| `/terms` | Terms of use: information only, acceptable use, IP, export control, liability, Kenyan law. |
+| `/security` | Controls in place, what not to send, and how to report a vulnerability. |
+
+A dismissible cookie notice appears once (dismissal stored in `localStorage`, never sent anywhere).
+It links to `/cookies`; there is no consent gate because the only cookie is strictly necessary.

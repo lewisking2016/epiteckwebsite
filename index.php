@@ -373,7 +373,8 @@ require __DIR__ . '/includes/header.php';
           <?php endforeach; ?>
         </div>
         <div class="Btn_Row">
-          <a class="Btn Btn--primary" href="<?= e(url('/services')) ?>">All training &amp; services <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="Btn Btn--primary" href="<?= e(url('/apply')) ?>">Apply for a place <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="Btn Btn--ghost" href="<?= e(url('/services')) ?>">All training &amp; services</a>
         </div>
       </div>
 

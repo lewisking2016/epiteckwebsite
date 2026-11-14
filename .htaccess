@@ -73,6 +73,7 @@ ErrorDocument 404 /404.php
   # Block direct access to internal includes and storage
   RewriteRule ^includes/ - [F,L]
   RewriteRule ^storage/ - [F,L]
+  RewriteRule ^config/ - [F,L]
 
   # Clean URLs: /services -> /services/ (directory index handles the rest)
   RewriteCond %{REQUEST_FILENAME} !-f

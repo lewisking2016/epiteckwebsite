@@ -52,6 +52,12 @@ function session_start_secure(): void
     }
     $https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
         || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+    // Refuse client-supplied session ids and never accept one from the URL.
+    ini_set('session.use_strict_mode', '1');
+    ini_set('session.use_only_cookies', '1');
+    ini_set('session.use_trans_sid', '0');
+    ini_set('session.sid_length', '48');
+    ini_set('session.sid_bits_per_character', '5');
     session_set_cookie_params([
         'lifetime' => 0,
         'path'     => BASE_PATH !== '' ? BASE_PATH . '/' : '/',

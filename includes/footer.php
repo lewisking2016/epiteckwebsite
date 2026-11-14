@@ -62,6 +62,7 @@
         <a href="<?= e(url('/partnerships-stm')) ?>">Partnership</a>
         <a href="<?= e(url('/services')) ?>">Training &amp; services</a>
         <a href="<?= e(url('/services#support-desk')) ?>">Support desk</a>
+        <a href="<?= e(url('/apply')) ?>">Apply for training</a>
         <a href="<?= e(url('/contact')) ?>">Contact</a>
       </nav>
 
@@ -105,7 +106,9 @@
       <p class="Foot_Copy">© <?= date('Y') ?> <?= e(SITE_LEGAL) ?> · Nairobi, Kenya · <?= e(SITE_DOMAIN) ?></p>
       <div class="Foot_Links">
         <a href="<?= e(url('/privacy')) ?>">Privacy notice</a>
-        <a href="<?= e(url('/contact#compliance')) ?>">Compliance</a>
+        <a href="<?= e(url('/cookies')) ?>">Cookies</a>
+        <a href="<?= e(url('/terms')) ?>">Terms of use</a>
+        <a href="<?= e(url('/security')) ?>">Security</a>
         <a href="<?= e(url('sitemap.xml')) ?>">Sitemap</a>
         <a href="#top" class="Foot_Top_Link" aria-label="Scroll back to top">Back to top ↑</a>
       </div>
@@ -124,6 +127,18 @@
   </a>
 </div>
 
+<?php require_once __DIR__ . '/bot.php'; epi_render(); ?>
+
+<aside class="Cookie" data-cookie hidden aria-label="Cookie notice">
+  <p class="Cookie_T">One cookie, and only for the forms</p>
+  <p class="Cookie_B">This site uses a single session cookie so enquiry and application forms cannot be submitted from another site. No analytics, advertising or third-party tracking.</p>
+  <div class="Cookie_Row">
+    <button class="Cookie_Btn" type="button" data-cookie-ok>Understood</button>
+    <a class="Cookie_A" href="<?= e(url('/cookies')) ?>">Cookie notice</a>
+  </div>
+</aside>
+
 <script src="<?= e(asset('assets/js/main.js')) ?>" defer></script>
+<script src="<?= e(asset('assets/js/bot.js')) ?>" defer></script>
 </body>
 </html>

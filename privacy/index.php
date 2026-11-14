@@ -34,18 +34,18 @@ require dirname(__DIR__) . '/includes/header.php';
     <div class="Split">
       <div class="Split_Body">
         <span class="Eyebrow">What is collected</span>
-        <h2 id="Privacy_T">Only what an enquiry requires</h2>
-        <p>The enquiry form asks for your name, official title, organisation, official email address, telephone number, operating country, technology interest, operating environment, project timeline and a description of the requirement. Submitting the form is the only way this website collects personal information.</p>
+        <h2 id="Privacy_T">Only what an enquiry or application requires</h2>
+        <p>Two forms collect personal information. The enquiry form asks for your name, official title, organisation, email address, telephone number, operating country, technology interest, operating environment, project timeline and a description of the requirement. The application form asks for your name, email address, telephone number, country, organisation, role, the programme or briefing requested, a preferred start window, an optional CV link and a description of your background or requirement. Submitting either form is the only way this website collects personal information.</p>
         <p>Technical information about your visit — pages requested, timestamps, browser type and a shortened network address — is written to the web server's standard access log by the hosting platform. It is used for security and to diagnose faults.</p>
 
         <h2 id="Cookies_T">Cookies</h2>
-        <p>This site does not use analytics, advertising or third-party tracking cookies, and loads no external fonts, scripts or images. A single session cookie is set when you open the enquiry form; it holds a security token and expires when you close your browser.</p>
+        <p>This site does not use analytics, advertising or third-party tracking cookies, and loads no external fonts, scripts or images. A single session cookie is set when you open the enquiry form; it holds a security token and expires when you close your browser. The <a href="<?= e(url('/cookies')) ?>">cookie notice</a> lists every entry with its purpose and lifetime.</p>
 
         <h2 id="Use_T">How it is used</h2>
-        <p>Enquiry details are used to answer the enquiry, to carry out the eligibility and end-use checks described on the contact page, and to keep a record of the correspondence. They are not sold, rented or shared for marketing purposes.</p>
+        <p>Enquiry and application details are used to answer the request, to carry out the eligibility and end-use checks described on the contact page, to assess a training application, and to keep a record of the correspondence. They are not sold, rented or shared for marketing purposes.</p>
 
         <h2 id="Retention_T">Retention and access</h2>
-        <p>Enquiries are kept for as long as needed to answer them and to meet contractual, export-control or legal record-keeping obligations, then deleted. You can ask what is held about you, ask for a correction, or ask for the record to be deleted, by writing through the contact page and quoting your reference number.</p>
+        <p>Enquiries and applications are kept for as long as needed to answer them and to meet contractual, export-control or legal record-keeping obligations, then deleted. You can ask what is held about you, ask for a correction, or ask for the record to be deleted, by writing through the contact page and quoting your reference number.</p>
 
         <h2 id="Security_T">Security</h2>
         <p>The form is served over HTTPS, protected against cross-site request forgery and rate-limited. Do not send classified, controlled or sensitive technical data through the form; secure transfer arrangements are agreed separately before any such exchange.</p>
@@ -63,8 +63,8 @@ require dirname(__DIR__) . '/includes/header.php';
           <ul class="AsideList">
             <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> No analytics, advertising or tracking cookies.</li>
             <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> No third-party scripts, fonts or embeds.</li>
-            <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> One session cookie, set only for the enquiry form.</li>
-            <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Enquiry data used to answer the enquiry and meet record-keeping duties.</li>
+            <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> One session cookie, set only when you open an enquiry or application form.</li>
+            <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Enquiry and application data used to answer the request and meet record-keeping duties.</li>
             <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Access, correction and deletion on request.</li>
           </ul>
         </div>

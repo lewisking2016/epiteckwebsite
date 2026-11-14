@@ -141,6 +141,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $line = json_encode($record, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n";
         @file_put_contents($dir . '/leads-' . date('Ym') . '.jsonl', $line, FILE_APPEND | LOCK_EX);
 
+        // Mirror into the dashboard database. Failure never blocks the enquiry.
+        try {
+            require_once dirname(__DIR__) . '/includes/db.php';
+            if (!db_one('SELECT id FROM enquiries WHERE reference = ?', [$reference])) {
+                db_exec(
+                    'INSERT INTO enquiries (reference, name, title, organisation, email, phone, country, interests, environment, timeline, briefing, message, status, source, ip_hash, created_at)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                    [
+                        $reference,
+                        $raw['name'],
+                        $raw['title'],
+                        $raw['organisation'],
+                        $raw['email'],
+                        $raw['phone'],
+                        $raw['country'],
+                        implode(', ', $record['interests']),
+                        $raw['environment'],
+                        $raw['timeline'],
+                        $record['demo'],
+                        $raw['message'],
+                        'new',
+                        'contact-form',
+                        $record['ip_hash'],
+                        gmdate('Y-m-d H:i:s'),
+                    ]
+                );
+            }
+        } catch (Throwable $e) {
+            error_log('Enquiry mirror failed: ' . $e->getMessage());
+        }
+
         $mailed = false;
         if (MAIL_ENABLED) {
             $subject = '[' . $reference . '] Technical demo request — ' . preg_replace('/[^\p{L}\p{N} .\-]/u', '', $raw['organisation']);

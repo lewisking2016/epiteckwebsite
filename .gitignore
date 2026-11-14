@@ -14,3 +14,9 @@ Thumbs.db
 .idea/
 .freebuff/
 cgi-bin/
+
+# dashboard database and credentials (never committed)
+config/db.local.php
+storage/app.sqlite
+storage/app.sqlite-shm
+storage/app.sqlite-wal

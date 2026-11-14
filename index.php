@@ -6,8 +6,8 @@ $page = [
     'slug'        => 'home',
     'nav'         => 'home',
     'path'        => '/',
-    'title'       => 'East Africa Defence & Aviation Technology Integrator | EPiTEK',
-    'description' => 'EPiTEK Solutions integrates defence and aviation technology across East Africa: tactical UAS, mission software, C4ISR, training and depot sustainment.',
+    'title'       => 'East Africa aviation and air-force support arm | EPiTEK Solutions',
+    'description' => 'EPiTEK Solutions is the regional support arm for STM in East Africa: aviation mission software, avionics integration, tactical UAS, training and depot sustainment.',
     'heroImage'   => 'assets/img/hero-terrain.svg',
     'filterDomains' => true,
     'schema' => [
@@ -20,9 +20,9 @@ $page = [
                 'url' => SITE_URL . '/',
                 'logo' => SITE_URL . '/assets/img/epitek-logo.svg',
                 'email' => SITE_EMAIL,
-                'description' => 'Regional distributor, systems integrator and lifecycle maintainer for defence, aerospace and mission technology in East Africa.',
+                'description' => 'Regional support arm for aviation, aerospace and unmanned systems in East Africa: distribution, integration, training and lifecycle support.',
                 'areaServed' => ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia'],
-                'knowsAbout' => ['Tactical unmanned aerial systems', 'Mission planning software', 'C4ISR integration', 'Aviation maintenance', 'Aviation standards compliance'],
+                'knowsAbout' => ['Aviation mission software', 'Avionics integration', 'Tactical unmanned aerial systems', 'Aviation maintenance and depot sustainment', 'Aviation standards compliance'],
                 'contactPoint' => [
                     '@type' => 'ContactPoint',
                     'contactType' => 'sales',
@@ -41,11 +41,11 @@ $page = [
             ],
             [
                 '@type' => 'Service',
-                'name' => 'Defence and aviation technology integration',
+                'name' => 'Aviation and air-force support in East Africa',
                 'provider' => ['@id' => SITE_URL . '/#organization'],
-                'serviceType' => 'Systems integration, procurement and lifecycle sustainment',
+                'serviceType' => 'Aviation integration, training and lifecycle sustainment',
                 'areaServed' => ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia'],
-                'description' => 'Procurement, integration, training and depot-level maintenance for autonomous systems, aviation mission software and C4ISR infrastructure.',
+                'description' => 'Integration, training and depot-level maintenance for aviation mission software, avionics, unmanned systems and command infrastructure.',
             ],
         ],
     ],
@@ -63,95 +63,65 @@ require __DIR__ . '/includes/header.php';
       <div class="Hero_Txt">
         <div class="Hero_Badge">
           <span class="Hero_Badge_Beacon" aria-hidden="true"></span>
-          <span class="Hero_Badge_Text">REGIONAL DEFENCE &amp; AVIATION SYSTEMS INTEGRATOR</span>
-          <span class="Hero_Badge_Code">STANAG · ICAO</span>
+          <span class="Hero_Badge_Text">REGIONAL SUPPORT ARM FOR STM · EAST AFRICA</span>
         </div>
 
         <h1 class="Hero_H1" id="Hero_T">
-          Sovereign Defence &amp; Aviation Technology <span class="Hl">Engineered for East Africa</span>
+          Aviation and air-force support, <span class="Hl">delivered in region</span>
         </h1>
 
         <p class="Hero_Lead">
-          EPiTEK Solutions equips defence forces, civil aviation authorities, and security agencies across the East African Community with mission-critical tactical UAS, cockpit avionics, hardened C4ISR networks, and in-theatre depot sustainment.
+          EPiTEK Solutions is the regional support arm for STM in East Africa: airborne mission software, avionics integration, tactical unmanned systems, crew training and depot sustainment — carried out close to the fleet rather than from another continent.
         </p>
 
         <div class="Hero_Act">
           <a class="Btn Btn--light Btn--lg Btn--go" href="#domains">
-            Explore Capabilities <span class="Btn_Ico" aria-hidden="true"><svg class="Ico Ico--sm"><use href="#i-arrow"/></svg></span>
+            Explore capabilities <span class="Btn_Ico" aria-hidden="true"><svg class="Ico Ico--sm"><use href="#i-arrow"/></svg></span>
           </a>
           <a class="Btn Btn--ghost-light Btn--lg" href="<?= e(url('/contact')) ?>">
-            <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-shield"/></svg> Request Technical Demo
+            <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-shield"/></svg> Request a briefing
           </a>
-        </div>
-
-        <!-- Capability Matrix / Key Highlights -->
-        <div class="Hero_StatsGrid">
-          <div class="Hero_StatCard">
-            <div class="Hero_StatNum">05</div>
-            <div class="Hero_StatLbl">Sovereign Territories Linked</div>
-            <div class="Hero_StatSub">KE · UG · TZ · RW · ET</div>
-          </div>
-          <div class="Hero_StatCard">
-            <div class="Hero_StatNum">&lt;24h</div>
-            <div class="Hero_StatLbl">In-Theatre Depot SLA</div>
-            <div class="Hero_StatSub">Nairobi Support Hub</div>
-          </div>
-          <div class="Hero_StatCard">
-            <div class="Hero_StatNum">100%</div>
-            <div class="Hero_StatLbl">Interoperable Architectures</div>
-            <div class="Hero_StatSub">NATO &amp; EUROCONTROL</div>
-          </div>
         </div>
 
         <!-- Domain quick chips -->
         <div class="Hero_Pills" aria-label="Operational core capabilities">
-          <span class="Hero_Pill">Tactical UAS &amp; Loitering Munitions</span>
-          <span class="Hero_Pill">Mission Software &amp; Moving Maps</span>
-          <span class="Hero_Pill">Sensor-to-Shooter C4ISR</span>
-          <span class="Hero_Pill">Depot MRO Sustainment</span>
+          <span class="Hero_Pill">Mission software &amp; moving maps</span>
+          <span class="Hero_Pill">Avionics integration</span>
+          <span class="Hero_Pill">Tactical UAS &amp; ISR</span>
+          <span class="Hero_Pill">Depot &amp; crew training</span>
         </div>
       </div>
 
       <div class="Hero_Viz">
         <div class="Globe" id="hero-globe">
-          <!-- Live Telemetry Status Header -->
           <div class="Globe_Header">
             <div class="Globe_Header_Left">
-              <span class="Globe_LiveDot" aria-hidden="true"></span>
-              <span class="Globe_LiveTitle">EAST AFRICA DEFENCE MESH</span>
-              <span class="Globe_LiveCapCount">10 CAPITALS LINKED</span>
+              <span class="Globe_LiveTitle">Regional hubs</span>
             </div>
             <div class="Globe_Header_Right">
-              <span class="Globe_HudTag">TACTICAL C2 HUD</span>
+              <span class="Globe_HudTag">Schematic · not to scale</span>
             </div>
           </div>
 
           <!-- 3D Canvas Frame -->
-          <div class="Globe_Frame" aria-label="Interactive 3D East Africa Defence and Aviation Globe">
+          <div class="Globe_Frame" aria-label="Illustrative map of regional hubs and the links between them">
             <img class="Globe_Poster" src="<?= e(url('assets/img/coverage-map.svg')) ?>" alt="Regional network coverage" width="900" height="760" decoding="async">
             
-            <!-- Interactive Tactical HUD Tooltip -->
             <div class="Globe_Tip" hidden>
               <div class="Globe_Tip_Header">
                 <span class="Globe_Tip_City">Nairobi</span>
                 <span class="Globe_Tip_Country">Kenya</span>
               </div>
-              <div class="Globe_Tip_Coord">01°17'S · 36°49'E</div>
-              <div class="Globe_Tip_Role">Regional Operations Command HQ &amp; Avionics Depot</div>
-              <div class="Globe_Tip_Status">
-                <i class="Dot Dot--ok" aria-hidden="true"></i> Encrypted Telemetry · Low Latency
-              </div>
+              <div class="Globe_Tip_Role">Regional coordination</div>
             </div>
           </div>
 
-          <!-- Quick Capital Targets Navigator -->
-          <div class="Globe_Controls" aria-label="Focus strategic capital">
-            <span class="Globe_Controls_Label">Target Hub:</span>
+          <div class="Globe_Controls" aria-label="Focus a regional hub">
+            <span class="Globe_Controls_Label">Focus a hub:</span>
             <div class="Globe_Capitals">
-              <button type="button" class="Globe_CapBtn is-active" data-cap="nairobi" title="Focus Nairobi HQ">Nairobi <span class="CapTag">HQ</span></button>
+              <button type="button" class="Globe_CapBtn is-active" data-cap="nairobi" title="Focus Nairobi">Nairobi</button>
               <button type="button" class="Globe_CapBtn" data-cap="kampala" title="Focus Kampala">Kampala</button>
               <button type="button" class="Globe_CapBtn" data-cap="dodoma" title="Focus Dodoma">Dodoma</button>
-              <button type="button" class="Globe_CapBtn" data-cap="daressalaam" title="Focus Dar es Salaam">Dar es Salaam</button>
               <button type="button" class="Globe_CapBtn" data-cap="kigali" title="Focus Kigali">Kigali</button>
               <button type="button" class="Globe_CapBtn" data-cap="addis" title="Focus Addis Ababa">Addis Ababa</button>
               <button type="button" class="Globe_CapBtn" data-cap="juba" title="Focus Juba">Juba</button>
@@ -162,9 +132,9 @@ require __DIR__ . '/includes/header.php';
           <!-- Globe Bottom Bar with Telemetry Readout -->
           <div class="Globe_Bar">
             <span class="Globe_Hint">
-              <i class="Dot Dot--pulse" aria-hidden="true"></i> Drag to rotate · Select capital to focus
+              <i class="Dot Dot--pulse" aria-hidden="true"></i> Drag to rotate · Select a hub to focus
             </span>
-            <span class="Globe_Coord" id="globe-telemetry">LAT 02.2°N · LNG 37.2°E</span>
+            <span class="Globe_Coord">Illustration · regional context</span>
           </div>
         </div>
       </div>
@@ -175,8 +145,8 @@ require __DIR__ . '/includes/header.php';
         <div class="Chain_Pic"><img src="<?= e(url('assets/img/c4isr.svg')) ?>" alt="" width="860" height="640" loading="lazy" decoding="async"></div>
         <div class="Chain_B">
           <h2 class="Chain_T"><svg class="Ico" aria-hidden="true"><use href="#i-globe"/></svg> Domains</h2>
-          <div class="Chain_Chips"><span>AIR</span><span>AVIATION</span><span>C4ISR</span><span>MRO</span></div>
-          <div class="Chain_Chips"><span>Autonomous systems</span><span>Mission software</span></div>
+          <div class="Chain_Chips"><span>AIR FORCE</span><span>AVIATION</span><span>UAS</span><span>DEPOT</span></div>
+          <div class="Chain_Chips"><span>Mission software</span><span>Avionics</span></div>
         </div>
       </article>
       <article class="Chain">
@@ -204,18 +174,18 @@ require __DIR__ . '/includes/header.php';
   <div class="Wrap">
     <div class="Split">
       <div class="Split_Body Reveal">
-        <span class="Eyebrow">Regional engineering backbone</span>
-        <h2 id="Overview_T">Not a broker. An engineering presence in theatre.</h2>
-        <p>East African procurement authorities need more than a catalogue and a freight forwarder. They need a partner who can clear a border, integrate a tactical data link, train the operator and keep the platform serviceable a decade after delivery.</p>
-        <p>EPiTEK Solutions operates as that regional engineering layer: distribution logistics, system integration, certification-aware documentation and depot-level sustainment, delivered inside national procurement frameworks.</p>
+        <span class="Eyebrow">Regional support arm</span>
+        <h2 id="Overview_T">Not a catalogue. A support arm inside the region.</h2>
+        <p>An air force does not buy software, a sensor and a spare part in isolation. It buys availability — the aircraft serviceable on the day the tasking arrives, with the documentation to prove it.</p>
+        <p>EPiTEK holds that obligation in East Africa on behalf of STM: requirement translation, integration engineering, crew and maintainer training, and a depot loop measured in days rather than shipping cycles.</p>
         <ul class="Split_List">
-          <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Factory-trained engineers and test capability positioned in the region.</li>
-          <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Sensor, radio and command integration into existing sovereign infrastructure.</li>
-          <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> One accountable contract from requirement definition to depot overhaul.</li>
+          <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Aviation engineers and instructors based in the region, not flown in per project.</li>
+          <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Mission software and avionics integrated into the fleet you already operate.</li>
+          <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> One programme office from requirement definition to depot overhaul.</li>
         </ul>
         <div class="Btn_Row">
-          <a class="Btn Btn--primary" href="<?= e(url('/distributor-integration')) ?>">Open the distributor hub <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a class="Btn Btn--ghost" href="<?= e(url('/partnerships-stm')) ?>">Technology partnership</a>
+          <a class="Btn Btn--primary" href="<?= e(url('/distributor-integration')) ?>">How the support model works <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="Btn Btn--ghost" href="<?= e(url('/partnerships-stm')) ?>">The STM partnership</a>
         </div>
       </div>
 
@@ -247,9 +217,9 @@ require __DIR__ . '/includes/header.php';
 <section class="Section Section--alt" id="domains" aria-labelledby="Domains_T">
   <div class="Wrap">
     <div class="Head">
-      <span class="Eyebrow">Operational domains</span>
-      <h2 id="Domains_T">Four domains. One accountable integrator.</h2>
-      <p class="Head_B">Filter the page by domain using the bar above. Each domain shares the same engineering, training and sustainment backbone, so capability does not arrive in disconnected contracts.</p>
+      <span class="Eyebrow">Capabilities</span>
+      <h2 id="Domains_T">Aviation first. Then everything that keeps it flying.</h2>
+      <p class="Head_B">Four capability areas under one regional programme office. Filter using the bar above; each area shares the same engineering, training and sustainment backbone.</p>
     </div>
 
     <div class="Grid Grid--4">
@@ -259,9 +229,9 @@ require __DIR__ . '/includes/header.php';
           <span class="Card_Tag">Domain 01</span>
         </div>
         <div class="Card_B">
-          <span class="Card_K">Air &amp; autonomous</span>
-          <h3 class="Card_T">Tactical UAS and loitering systems</h3>
-          <p class="Card_D">ISR and precision systems that keep working in GNSS-denied airspace, integrated with your command chain and supported in theatre.</p>
+          <span class="Card_K">Air force &amp; unmanned</span>
+          <h3 class="Card_T">Squadron support and tactical UAS</h3>
+          <p class="Card_D">Crew support, surveillance UAS and payload systems that keep working in contested or GNSS-degraded airspace, integrated with your command chain and sustained in region.</p>
           <a class="Card_L" href="<?= e(url('/partnerships-stm#portfolio')) ?>">Explore the systems <svg class="Ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </article>
@@ -273,8 +243,8 @@ require __DIR__ . '/includes/header.php';
         </div>
         <div class="Card_B">
           <span class="Card_K">Aviation software</span>
-          <h3 class="Card_T">Mission planning &amp; situational awareness</h3>
-          <p class="Card_D">Digital moving maps, route planning and cockpit feeds that modernise legacy fleets without replacing the airframe.</p>
+          <h3 class="Card_T">Mission planning, maps and cockpit systems</h3>
+          <p class="Card_D">Airborne digital moving maps, route planning, terrain-aided navigation and cockpit situational awareness that modernise a fleet without replacing the airframe.</p>
           <a class="Card_L" href="<?= e(url('/partnerships-stm#portfolio')) ?>">Explore mission software <svg class="Ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </article>
@@ -285,9 +255,9 @@ require __DIR__ . '/includes/header.php';
           <span class="Card_Tag">Domain 03</span>
         </div>
         <div class="Card_B">
-          <span class="Card_K">C4ISR &amp; cyber</span>
-          <h3 class="Card_T">Command, control &amp; maritime awareness</h3>
-          <p class="Card_D">Sensor-to-shooter integration, coastal surveillance and hardened mission networks, including naval platform integration.</p>
+          <span class="Card_K">Command &amp; surveillance</span>
+          <h3 class="Card_T">Air picture, command posts and coastal awareness</h3>
+          <p class="Card_D">Radar, sensor and command-post integration into one operational picture, with coastal surveillance and hardened mission networks where the tasking requires them.</p>
           <a class="Card_L" href="<?= e(url('/distributor-integration#integration')) ?>">See integration methods <svg class="Ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </article>
@@ -298,8 +268,8 @@ require __DIR__ . '/includes/header.php';
           <span class="Card_Tag">Domain 04</span>
         </div>
         <div class="Card_B">
-          <span class="Card_K">Integrated support</span>
-          <h3 class="Card_T">Depot maintenance &amp; sustainment</h3>
+          <span class="Card_K">Depot &amp; sustainment</span>
+          <h3 class="Card_T">Depot maintenance and fleet support</h3>
           <p class="Card_D">Regional depot MRO, spares warehousing, battery management and mobile engineering teams that shorten the repair loop.</p>
           <a class="Card_L" href="<?= e(url('/services#support-desk')) ?>">SLA and support tiers <svg class="Ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
@@ -315,8 +285,8 @@ require __DIR__ . '/includes/header.php';
     <div class="Head Head--split">
       <div>
         <span class="Eyebrow">Technology portfolio</span>
-        <h2 id="Portfolio_T">Systems we integrate, train on and sustain</h2>
-        <p class="Head_B">A focused portfolio across autonomous systems, mission software, naval command and depot support. Specification sheets are released after eligibility screening.</p>
+        <h2 id="Portfolio_T">Systems we support, train on and sustain</h2>
+        <p class="Head_B">The STM portfolio, carried from inside the region: aviation mission software, surveillance and strike unmanned systems, and the depot support behind them. Specification sheets are released after eligibility screening.</p>
       </div>
       <div class="Head_A">
         <a class="Btn Btn--ghost" href="<?= e(url('/partnerships-stm')) ?>">Full portfolio table <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -352,10 +322,10 @@ require __DIR__ . '/includes/header.php';
         <h2 id="Standards_T">Standards are the baseline. Evidence is the deliverable.</h2>
         <p>“Aligned” is not “certified”. We state the difference, keep the paperwork, and hand over the evidence file your audit team will ask for.</p>
         <div class="Stats Stats--dark">
-          <div class="Stat"><span class="Stat_V">05</span><span class="Stat_L">Territories</span><span class="Stat_D">EAC coverage</span></div>
-          <div class="Stat"><span class="Stat_V">&lt;2h</span><span class="Stat_L">Tier 1 target</span><span class="Stat_D">Service objective</span></div>
-          <div class="Stat"><span class="Stat_V">24/7</span><span class="Stat_L">Support desk</span><span class="Stat_D">Duty engineer</span></div>
-          <div class="Stat"><span class="Stat_V">04</span><span class="Stat_L">Domains</span><span class="Stat_D">One integrator</span></div>
+          <div class="Stat"><span class="Stat_V">5</span><span class="Stat_L">Countries</span><span class="Stat_D">EAC coverage</span></div>
+          <div class="Stat"><span class="Stat_V">&lt; 2 h</span><span class="Stat_L">Tier 1 target</span><span class="Stat_D">Service objective</span></div>
+          <div class="Stat"><span class="Stat_V">1 day</span><span class="Stat_L">Standard response</span><span class="Stat_D">Working day</span></div>
+          <div class="Stat"><span class="Stat_V">4</span><span class="Stat_L">Domains</span><span class="Stat_D">One integrator</span></div>
         </div>
         <a class="Btn Btn--ghost-light" href="<?= e(url('/contact#compliance')) ?>">Read the compliance approach <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>

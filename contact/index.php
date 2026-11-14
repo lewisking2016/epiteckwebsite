@@ -10,11 +10,11 @@ $successRef = null;
 $mailSent = false;
 
 $interestOptions = [
-    'loitering'   => 'Tactical loitering munitions',
+    'aviation'    => 'Avionics & mission software',
     'recon'       => 'Reconnaissance UAS',
-    'focusflite'  => 'FocusFlite avionics software',
+    'loitering'   => 'Tactical loitering munitions',
     'c4i'         => 'C4I infrastructure',
-    'maintenance' => 'Custom maintenance contracts',
+    'maintenance' => 'Maintenance & training contracts',
 ];
 $countryOptions = ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia', 'Other'];
 $envOptions = ['Border / land', 'Maritime / coastal', 'Airbase / aviation', 'Urban / critical infrastructure', 'Training academy', 'Other'];
@@ -23,8 +23,8 @@ $demoOptions = ['virtual' => 'Virtual architecture review', 'in-country' => 'In-
 $topicMap = [
     'uas' => 'loitering', 'kargu' => 'loitering', 'alpagub' => 'loitering',
     'togan' => 'recon', 'boyga' => 'recon',
-    'focusflite' => 'focusflite', 'naval' => 'c4i', 'c4i' => 'c4i',
-    'sla' => 'maintenance', 'training' => 'maintenance', 'brief' => 'c4i',
+    'focusflite' => 'aviation', 'aviation' => 'aviation', 'naval' => 'c4i', 'c4i' => 'c4i',
+    'sla' => 'maintenance', 'training' => 'maintenance', 'brief' => 'aviation',
 ];
 
 $prefTopic = isset($_GET['topic']) ? (string) $_GET['topic'] : '';
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['form'] = 'This form session has expired. Please reload the page and try again.';
     }
     if (!rate_limit('contact-form', 5, 3600)) {
-        $errors['form'] = 'Too many requests from this connection. Please email ' . SITE_EMAIL . ' directly.';
+        $errors['form'] = 'Too many requests from this connection. Please try again later.';
     }
 
     $nameLen = mb_strlen($raw['name']);
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'timeline' => $raw['timeline'],
             'demo' => $demoOptions[$raw['demo']],
             'message' => $raw['message'],
-            'ip_hash' => hash('sha256', client_ip() . '|' . SITE_EMAIL),
+            'ip_hash' => hash('sha256', client_ip() . '|' . SITE_NAME),
         ];
 
         $dir = dirname(__DIR__) . '/storage/leads';
@@ -180,8 +180,8 @@ $page = [
     'slug'        => 'contact',
     'nav'         => 'contact',
     'path'        => '/contact',
-    'title'       => 'Contact & Technical Demo Request | EPiTEK Solutions',
-    'description' => 'Request a technical demo, tactical data sheet or SLA consultation from EPiTEK Solutions, East Africa defence and aviation technology integrator.',
+    'title'       => 'Contact and briefing request | EPiTEK Solutions',
+    'description' => 'Request a capability briefing, technical data sheet or support consultation from EPiTEK Solutions, the regional support arm for STM in East Africa.',
     'heroImage'   => 'assets/img/hero-terrain.svg',
     'hideCta'     => true,
     'bodyClass'   => 'Page--contact',
@@ -193,7 +193,6 @@ $page = [
         'mainEntity' => [
             '@type' => 'Organization',
             'name' => SITE_NAME,
-            'email' => SITE_EMAIL,
             'url' => SITE_URL . '/',
             'areaServed' => ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia'],
         ],
@@ -240,8 +239,8 @@ require dirname(__DIR__) . '/includes/header.php';
               <div>
                 <strong>Request recorded — reference <?= e($successRef) ?>.</strong><br>
                 <?= $mailSent
-                    ? 'The regional team has been notified by email. Keep this reference for follow-up.'
-                    : 'The request is in the secure intake log. Email ' . e(SITE_EMAIL) . ' with this reference to reach the team directly.' ?>
+                    ? 'The regional team has been notified. Keep this reference for follow-up.'
+                    : 'The request is recorded in the secure intake log. Keep this reference for follow-up.' ?>
               </div>
             </div>
             <div class="AsideCard AsideCard--spaced">
@@ -382,7 +381,9 @@ require dirname(__DIR__) . '/includes/header.php';
                 <?php if (isset($errors['consent'])): ?><span class="Err"><?= e($errors['consent']) ?></span><?php endif; ?>
                 <div class="Btn_Row">
                   <button class="Btn Btn--primary Btn--lg" type="submit">Submit request <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+                  <?php if (SITE_EMAIL !== ''): ?>
                   <a class="Btn Btn--ghost" href="mailto:<?= e(SITE_EMAIL) ?>">Email directly instead</a>
+                  <?php endif; ?>
                 </div>
                 <p class="Form_Note">Your details are used only to answer this enquiry. Technical data sheets and demonstrations are released after eligibility and export-control screening.</p>
               </div>
@@ -394,12 +395,14 @@ require dirname(__DIR__) . '/includes/header.php';
       <aside class="FormAside" aria-label="Contact details and intake information">
         <div class="AsideCard">
           <h2 class="AsideCard_T">Direct contact</h2>
-          <p><strong>Primary enquiries</strong><br><a href="mailto:<?= e(SITE_EMAIL) ?>"><?= e(SITE_EMAIL) ?></a></p>
+          <p><strong>Primary enquiries</strong><br><?php if (SITE_EMAIL !== ''): ?><a href="mailto:<?= e(SITE_EMAIL) ?>"><?= e(SITE_EMAIL) ?></a><?php else: ?>Use the enquiry form on this page<?php endif; ?></p>
           <p><strong>Regional headquarters</strong><br>Nairobi, Kenya<br><span class="Muted">Street address and map coordinates provided on request.</span></p>
           <p><strong>Technical support</strong><br>Routed through the support desk after agreement. See <a href="<?= e(url('/services#support-desk')) ?>">SLA tiers</a>.</p>
+          <?php if (SITE_LINKEDIN !== ''): ?>
           <a class="Foot_Soc Foot_Soc--accent" href="<?= e(SITE_LINKEDIN) ?>" rel="noopener" target="_blank">
-            <svg class="Ico" aria-hidden="true"><use href="#i-linkedin"/></svg> Follow on LinkedIn
+            <svg class="Ico" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn
           </a>
+          <?php endif; ?>
         </div>
 
         <div class="AsideCard">

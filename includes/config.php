@@ -10,12 +10,12 @@ const SITE_NAME      = 'EPiTEK Solutions';
 const SITE_LEGAL     = 'EPiTEK Solutions';
 const SITE_DOMAIN    = 'epitexsolution.africa';
 const SITE_URL       = 'https://epitexsolution.africa';
-const SITE_TAGLINE   = 'East Africa defence and aviation technology integrator';
-const SITE_EMAIL     = 'contact@epitexsolution.africa';
-const SITE_PHONE     = '+254 000 000 000'; // placeholder — replace with the published dispatch line
-const SITE_LINKEDIN  = 'https://www.linkedin.com/';
-const MAIL_FROM      = 'website@epitexsolution.africa';
-const MAIL_TO        = 'contact@epitexsolution.africa';
+const SITE_TAGLINE   = 'Regional aviation and air-force support arm in East Africa';
+const SITE_EMAIL     = ''; // public mailbox — set once the new address exists; empty hides every email link
+const SITE_PHONE     = ''; // dispatch line — add when published
+const SITE_LINKEDIN  = ''; // company page URL — add when published
+const MAIL_FROM      = ''; // set with SITE_EMAIL
+const MAIL_TO        = ''; // set with SITE_EMAIL
 
 // Set true on the live host once mail()/SMTP delivery is configured. While false,
 // enquiries are validated, rate-limited and stored in storage/leads.jsonl instead.
@@ -35,22 +35,22 @@ require_once __DIR__ . '/content.php';
 
 $DOMAINS = [
     'air' => [
-        'label' => 'Air & Autonomous Systems',
-        'short' => 'Autonomous',
-        'desc'  => 'Tactical UAS, loitering munitions and ISR payloads for contested and GNSS-degraded environments.',
+        'label' => 'Air Force & Unmanned Systems',
+        'short' => 'Air force',
+        'desc'  => 'Squadron support, tactical UAS and ISR payloads for contested and GNSS-degraded environments.',
     ],
     'aviation' => [
-        'label' => 'Aviation Software & Mission Planning',
+        'label' => 'Aviation Software & Avionics',
         'short' => 'Aviation',
-        'desc'  => 'Mission planning, digital moving maps and cockpit situational awareness for fixed and rotary wing fleets.',
+        'desc'  => 'Mission planning, digital moving maps, terrain-aided navigation and cockpit situational awareness for fixed and rotary wing fleets.',
     ],
     'cyber' => [
-        'label' => 'Cyber, C4ISR & Command Systems',
+        'label' => 'Command, Control & Surveillance',
         'short' => 'C4ISR',
-        'desc'  => 'Sensor-to-shooter integration, coastal surveillance, command posts and hardened mission networks.',
+        'desc'  => 'Radar, sensor and command-post integration, coastal surveillance and hardened mission networks.',
     ],
     'support' => [
-        'label' => 'Integrated Support & Depot Maintenance',
+        'label' => 'Depot & Sustainment',
         'short' => 'Sustainment',
         'desc'  => 'Depot-level MRO, spares, battery management, field dispatch and operator training.',
     ],

@@ -6,8 +6,8 @@ $page = [
     'slug'        => 'services',
     'nav'         => 'services',
     'path'        => '/services',
-    'title'       => 'Training, Services & 24/7 Support | EPiTEK Solutions',
-    'description' => 'Tactical UAS pilot certification, avionics maintenance, ICAO and EUROCONTROL compliance training, a 24/7 support desk and defence advisory across East Africa.',
+    'title'       => 'Aviation training, support and depot services | EPiTEK Solutions',
+    'description' => 'Aviation maintenance, ICAO and EUROCONTROL compliance training, UAS operator certification, a tiered support desk and technical advisory across East Africa.',
     'heroImage'   => 'assets/img/depot.svg',
     'filterDomains' => true,
     'schema' => [
@@ -22,7 +22,7 @@ $page = [
             ],
             [
                 '@type' => 'GovernmentService',
-                'name' => 'Defence technical advisory',
+                'name' => 'Aviation technical advisory',
                 'serviceOperator' => ['@type' => 'Organization', 'name' => SITE_NAME],
                 'areaServed' => ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia'],
                 'description' => 'Needs analysis for ministries and civil authorities covering border security, anti-poaching and maritime domain awareness.',
@@ -44,7 +44,7 @@ require dirname(__DIR__) . '/includes/header.php';
       </nav>
       <span class="Eyebrow">Training, services &amp; support</span>
       <h1>Capability is a team, not a crate</h1>
-      <p class="PageHero_Lead">Five services that keep a fleet, a sensor network or an airspace function operating: certification training, avionics maintenance, compliance modules, a staffed support desk and sovereign advisory.</p>
+      <p class="PageHero_Lead">Five services that keep an air force operating: avionics maintenance, compliance training, operator certification, a staffed support desk and technical advisory.</p>
       <div class="PageHero_Act">
         <a class="Btn Btn--light" href="<?= e(url('/contact?topic=sla')) ?>">Initiate an SLA consultation <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="Btn Btn--ghost-light" href="#support-desk">Support tiers</a>
@@ -86,7 +86,7 @@ require dirname(__DIR__) . '/includes/header.php';
   <div class="Wrap">
     <div class="Head Head--split">
       <div>
-        <span class="Eyebrow">24/7 technical support desk</span>
+        <span class="Eyebrow">Technical support desk</span>
         <h2 id="Support_T">A response window you can plan around</h2>
         <p class="Head_B">Support is tiered by operational impact, not by how loudly a request is made. Each tier has a defined first response, escalation owner and reporting line.</p>
       </div>

@@ -5,7 +5,7 @@ if (!isset($page) || !is_array($page)) {
     $page = [
         'slug'        => 'home',
         'title'       => SITE_NAME . ' — ' . SITE_TAGLINE,
-        'description' => 'Regional defence, aerospace and mission-technology integration across East Africa.',
+        'description' => 'Regional aviation, aerospace and mission-technology support across East Africa.',
         'path'        => '/',
     ];
 }
@@ -87,10 +87,10 @@ $shareImage = url('assets/img/og-image.png');
           </button>
           <div class="Nav_Panel" id="Nav_Cap" hidden>
             <p class="Nav_Ph">Operational domains</p>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-air')) ?>"><strong>Air &amp; autonomous systems</strong><span>Tactical UAS, loitering munitions, ISR</span></a>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-aviation')) ?>"><strong>Aviation software</strong><span>Mission planning, moving maps, C2</span></a>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-cyber')) ?>"><strong>Cyber &amp; C4ISR</strong><span>Sensor-to-shooter, coastal surveillance</span></a>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-support')) ?>"><strong>Sustainment</strong><span>Depot MRO, spares, field teams</span></a>
+            <a class="Nav_Sub" href="<?= e(url('/#domain-air')) ?>"><strong>Air force &amp; unmanned systems</strong><span>Squadron support, tactical UAS, ISR</span></a>
+            <a class="Nav_Sub" href="<?= e(url('/#domain-aviation')) ?>"><strong>Aviation software &amp; avionics</strong><span>Mission planning, moving maps, navigation</span></a>
+            <a class="Nav_Sub" href="<?= e(url('/#domain-cyber')) ?>"><strong>Command &amp; surveillance</strong><span>Radar, command posts, coastal awareness</span></a>
+            <a class="Nav_Sub" href="<?= e(url('/#domain-support')) ?>"><strong>Depot &amp; sustainment</strong><span>MRO, spares, field teams</span></a>
             <a class="Nav_All" href="<?= e(url('/#portfolio')) ?>">View the technology portfolio <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </li>
@@ -101,9 +101,11 @@ $shareImage = url('assets/img/og-image.png');
     </nav>
 
     <div class="Top_Actions">
+      <?php if (SITE_LINKEDIN !== ''): ?>
       <a class="Top_Soc" href="<?= e(SITE_LINKEDIN) ?>" rel="noopener" target="_blank" aria-label="EPiTEK Solutions on LinkedIn">
         <svg class="Ico" aria-hidden="true"><use href="#i-linkedin"/></svg>
       </a>
+      <?php endif; ?>
       <a class="Btn Btn--primary Btn--sm Top_Cta" href="<?= e(url('/contact')) ?>">Contact</a>
       <button class="Burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="Drawer" data-menu-open>
         <svg class="Ico" aria-hidden="true"><use href="#i-menu"/></svg>
@@ -123,10 +125,10 @@ $shareImage = url('assets/img/og-image.png');
   </div>
   <nav class="Drawer_Nav" aria-label="Mobile">
     <a href="<?= e(url('/')) ?>">Home <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a href="<?= e(url('/distributor-integration')) ?>">Distributor &amp; integrator hub <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a href="<?= e(url('/partnerships-stm')) ?>">Partnership &amp; representation <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a href="<?= e(url('/services')) ?>">Training, services &amp; support <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a href="<?= e(url('/contact')) ?>">Contact &amp; demo request <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/distributor-integration')) ?>">Distributor hub <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/partnerships-stm')) ?>">Partnership <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/services')) ?>">Services <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/contact')) ?>">Contact <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </nav>
   <div class="Drawer_Domains">
     <p class="Drawer_L">Operational domains</p>
@@ -135,9 +137,11 @@ $shareImage = url('assets/img/og-image.png');
     <?php endforeach; ?>
   </div>
   <div class="Drawer_Meta">
+    <?php if (SITE_EMAIL !== ''): ?>
     <a href="mailto:<?= e(SITE_EMAIL) ?>"><svg class="Ico" aria-hidden="true"><use href="#i-mail"/></svg><?= e(SITE_EMAIL) ?></a>
+    <?php endif; ?>
     <p><svg class="Ico" aria-hidden="true"><use href="#i-pin"/></svg>Regional headquarters · Nairobi, Kenya</p>
-    <a class="Btn Btn--primary" href="<?= e(url('/contact')) ?>">Request a technical demo <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a class="Btn Btn--primary" href="<?= e(url('/contact')) ?>">Request a briefing <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </div>
 </div>
 <div class="Scrim" data-scrim hidden></div>

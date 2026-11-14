@@ -6,8 +6,8 @@ $page = [
     'slug'        => 'distributor-integration',
     'nav'         => 'distributor-integration',
     'path'        => '/distributor-integration',
-    'title'       => 'Distributor & Systems Integrator Hub | EPiTEK Solutions',
-    'description' => 'Regional distribution logistics, systems integration architecture and depot-level sustainment for defence technology across Kenya, Uganda, Tanzania, Rwanda and Ethiopia.',
+    'title'       => 'Distributor and systems integrator hub | EPiTEK Solutions',
+    'description' => 'Regional distribution logistics, avionics integration and depot-level sustainment for aviation and unmanned systems across Kenya, Uganda, Tanzania, Rwanda and Ethiopia.',
     'heroImage'   => 'assets/img/c4isr.svg',
     'filterDomains' => true,
     'schema' => [
@@ -16,7 +16,7 @@ $page = [
         'name' => 'Regional distribution and systems integration',
         'provider' => ['@type' => 'Organization', 'name' => SITE_NAME, 'url' => SITE_URL . '/'],
         'areaServed' => ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia'],
-        'serviceType' => 'Defence distribution, systems integration and depot sustainment',
+        'serviceType' => 'Aviation distribution, systems integration and depot sustainment',
         'description' => 'End-user monitoring, secure military transit, customs brokerage, sensor and C2 integration, and regional depot maintenance.',
     ],
 ];
@@ -34,7 +34,7 @@ require dirname(__DIR__) . '/includes/header.php';
       </nav>
       <span class="Eyebrow">Distribution · integration · sustainment</span>
       <h1>From cleared border to commissioned system</h1>
-      <p class="PageHero_Lead">The unglamorous work that decides whether a capability is available on the day it is needed: end-user monitoring, secure transit, customs clearance, integration into sovereign infrastructure, and a depot that answers the phone.</p>
+      <p class="PageHero_Lead">The unglamorous work that decides whether an aircraft is available on the day it is needed: end-user monitoring, secure transit, customs clearance, integration into the fleet, and a depot that answers the phone.</p>
       <div class="PageHero_Act">
         <a class="Btn Btn--light" href="#integration">Integration architecture <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="Btn Btn--ghost-light" href="<?= e(url('/contact?topic=sla')) ?>">Initiate an SLA consultation</a>
@@ -48,7 +48,7 @@ require dirname(__DIR__) . '/includes/header.php';
     <div class="Split">
       <div class="Split_Body Reveal">
         <span class="Eyebrow">The mandate</span>
-        <h2 id="Mandate_T">A regional integrator, accountable end to end</h2>
+        <h2 id="Mandate_T">A regional support arm, accountable end to end</h2>
         <p>Importing a system is the simple part. Making it work inside an existing air force, navy or border service is where programmes fail: interfaces do not match, documentation is incomplete, calibration capability is missing, and the first failure waits weeks for a part.</p>
         <p>EPiTEK is structured to close those gaps in-region — holding the procurement relationship, the integration engineering and the sustainment obligation under one programme office.</p>
         <ul class="Split_List">

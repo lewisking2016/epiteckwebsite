@@ -10,13 +10,13 @@
 
 import * as THREE from './vendor/three.module.min.js';
 
-/* --- East African Capitals & Strategic Military/Aviation Hubs ------------ */
+/* --- Regional hubs shown for orientation --------------------------------- */
 const CAPITALS = [
   {
     id: 'nairobi',
     name: 'Nairobi',
     country: 'Kenya',
-    role: 'Regional Command HQ · Systems Integration & MRO Depot',
+    role: 'Regional coordination',
     lat: -1.286389,
     lng: 36.817223,
     hub: true
@@ -25,7 +25,7 @@ const CAPITALS = [
     id: 'kampala',
     name: 'Kampala',
     country: 'Uganda',
-    role: 'Western Air Corridor · Tactical UAS Testing Hub',
+    role: 'Engineering support',
     lat: 0.347596,
     lng: 32.582520,
     hub: false
@@ -34,7 +34,7 @@ const CAPITALS = [
     id: 'dodoma',
     name: 'Dodoma',
     country: 'Tanzania',
-    role: 'Sovereign Command Post · Southern Border Surveillance',
+    role: 'Field operations',
     lat: -6.162959,
     lng: 35.751607,
     hub: false
@@ -43,7 +43,7 @@ const CAPITALS = [
     id: 'daressalaam',
     name: 'Dar es Salaam',
     country: 'Tanzania',
-    role: 'Maritime Security Hub · Coastal Radar & Fleet Comms',
+    role: 'Regional context',
     lat: -6.7924,
     lng: 39.2083,
     hub: false
@@ -52,7 +52,7 @@ const CAPITALS = [
     id: 'kigali',
     name: 'Kigali',
     country: 'Rwanda',
-    role: 'Rapid Deployment Depot · Field Engineering Team',
+    role: 'Training delivery',
     lat: -1.944073,
     lng: 30.061885,
     hub: false
@@ -61,7 +61,7 @@ const CAPITALS = [
     id: 'addis',
     name: 'Addis Ababa',
     country: 'Ethiopia',
-    role: 'Northern Aerospace Corridor · Avionics & Radar Integration',
+    role: 'Programme liaison',
     lat: 9.02497,
     lng: 38.74689,
     hub: false
@@ -70,7 +70,7 @@ const CAPITALS = [
     id: 'bujumbura',
     name: 'Bujumbura',
     country: 'Burundi',
-    role: 'Great Lakes Surveillance Station · Border C2',
+    role: 'Regional context',
     lat: -3.361,
     lng: 29.360,
     hub: false
@@ -79,7 +79,7 @@ const CAPITALS = [
     id: 'juba',
     name: 'Juba',
     country: 'South Sudan',
-    role: 'Upper Nile Tactical Air Link · Border Reconnaissance',
+    role: 'Regional context',
     lat: 4.8594,
     lng: 31.5713,
     hub: false
@@ -88,7 +88,7 @@ const CAPITALS = [
     id: 'djibouti',
     name: 'Djibouti City',
     country: 'Djibouti',
-    role: 'Red Sea Gateway · Strategic Coastal Early Warning',
+    role: 'Regional context',
     lat: 11.588,
     lng: 43.145,
     hub: false
@@ -97,7 +97,7 @@ const CAPITALS = [
     id: 'mogadishu',
     name: 'Mogadishu',
     country: 'Somalia',
-    role: 'Indian Ocean Coastal Radar · Maritime Reconnaissance Link',
+    role: 'Regional context',
     lat: 2.0469,
     lng: 45.3182,
     hub: false
@@ -106,14 +106,14 @@ const CAPITALS = [
     id: 'asmara',
     name: 'Asmara',
     country: 'Eritrea',
-    role: 'Northern Airspace Monitoring Link',
+    role: 'Regional context',
     lat: 15.322,
     lng: 38.925,
     hub: false
   }
 ];
 
-/* Primary telemetry & logistics corridors connecting the capitals */
+/* Regional links drawn for orientation, not a network claim */
 const LINKS = [
   // Nairobi regional hub spokes
   [0, 1], // Nairobi <-> Kampala
@@ -337,7 +337,6 @@ function lineSegments(pts, material) {
 export async function initGlobe(host) {
   const frame = host.querySelector('.Globe_Frame');
   const tip = host.querySelector('.Globe_Tip');
-  const telemetryEl = host.querySelector('#globe-telemetry');
   const capButtons = host.querySelectorAll('.Globe_CapBtn');
 
   if (!frame) throw new Error('globe frame missing');
@@ -361,7 +360,7 @@ export async function initGlobe(host) {
   canvas.className = 'Globe_Canvas';
   canvas.setAttribute('tabindex', '0');
   canvas.setAttribute('role', 'region');
-  canvas.setAttribute('aria-label', 'Interactive 3D East Africa Defence Globe. Drag to rotate.');
+  canvas.setAttribute('aria-label', 'Illustrative regional map. Drag to rotate, or use the hub buttons below.');
   frame.appendChild(canvas);
 
   const scene = new THREE.Scene();
@@ -543,14 +542,6 @@ export async function initGlobe(host) {
     qSpin.setFromAxisAngle(spinAxis, spin);
     globe.quaternion.copy(qBase).multiply(qSpin);
 
-    // Update real-time HUD telemetry readout if element exists
-    if (telemetryEl) {
-      const currentLat = -(tilt * 180 / Math.PI).toFixed(1);
-      const currentLng = (((-(spin + base.theta) * 180 / Math.PI) % 360 + 540) % 360 - 180).toFixed(1);
-      const latStr = currentLat >= 0 ? `${currentLat}°N` : `${Math.abs(currentLat)}°S`;
-      const lngStr = currentLng >= 0 ? `${currentLng}°E` : `${Math.abs(currentLng)}°W`;
-      telemetryEl.textContent = `LAT ${latStr} · LNG ${lngStr}`;
-    }
   };
   applyOrientation();
 
@@ -563,21 +554,11 @@ export async function initGlobe(host) {
     if (!tip) return;
     const cityEl = tip.querySelector('.Globe_Tip_City');
     const countryEl = tip.querySelector('.Globe_Tip_Country');
-    const coordEl = tip.querySelector('.Globe_Tip_Coord');
     const roleEl = tip.querySelector('.Globe_Tip_Role');
-    const statusEl = tip.querySelector('.Globe_Tip_Status');
 
     if (cityEl) cityEl.textContent = capData.name;
     if (countryEl) countryEl.textContent = capData.country;
-    if (coordEl) {
-      const latDir = capData.lat >= 0 ? 'N' : 'S';
-      const lngDir = capData.lng >= 0 ? 'E' : 'W';
-      coordEl.textContent = `${Math.abs(capData.lat).toFixed(2)}°${latDir} · ${Math.abs(capData.lng).toFixed(2)}°${lngDir}`;
-    }
     if (roleEl) roleEl.textContent = capData.role;
-    if (statusEl) {
-      statusEl.innerHTML = `<i class="Dot Dot--ok" aria-hidden="true"></i> ${capData.hub ? 'Regional Command HQ · Online' : 'Encrypted Link · 99.98% Telemetry'}`;
-    }
 
     const r = frame.getBoundingClientRect();
     const posX = clientX ? clientX - r.left : r.width * 0.5;

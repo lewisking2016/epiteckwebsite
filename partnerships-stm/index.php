@@ -6,8 +6,8 @@ $page = [
     'slug'        => 'partnerships-stm',
     'nav'         => 'partnerships-stm',
     'path'        => '/partnerships-stm',
-    'title'       => 'STM Partnership & Representation in East Africa | EPiTEK',
-    'description' => 'EPiTEK Solutions represents STM defence technology across East Africa: tactical UAS, FocusFlite mission software, naval systems and C4ISR, with regional training and lifecycle support.',
+    'title'       => 'STM partnership and representation in East Africa | EPiTEK Solutions',
+    'description' => 'EPiTEK Solutions is the regional support arm for STM in East Africa: FocusFlite mission software, tactical UAS, avionics integration and depot sustainment, with regional training.',
     'heroImage'   => 'assets/img/uas-kargu.svg',
     'filterDomains' => true,
     'schema' => [
@@ -37,8 +37,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Partnership</span>
       </nav>
       <span class="Eyebrow">Partnership &amp; representation</span>
-      <h1>STM technology, delivered with East African engineering</h1>
-      <p class="PageHero_Lead">EPiTEK is the regional integration and technical support vehicle for the STM portfolio across East Africa: autonomous systems, mission software, naval engineering and command integration.</p>
+      <h1>The regional arm for STM in East Africa</h1>
+      <p class="PageHero_Lead">EPiTEK is the regional integration and technical support arm for the STM portfolio across East Africa: aviation mission software, avionics, tactical unmanned systems and the sustainment that keeps them available.</p>
       <div class="PageHero_Act">
         <a class="Btn Btn--light" href="<?= e(url('/contact?topic=uas')) ?>">Request a tactical data sheet <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="Btn Btn--ghost-light" href="#portfolio">See the portfolio</a>
@@ -106,13 +106,13 @@ require dirname(__DIR__) . '/includes/header.php';
           </tr>
           <tr>
             <td>Aviation &amp; mission software</td>
-            <td>FocusFlite · C4ISR</td>
-            <td>Digital moving map, situational awareness, mission route planning, cockpit situational feeds</td>
+            <td>FocusFlite · TerraFlite</td>
+            <td>Airborne digital moving map, terrain-aided navigation, mission route planning, cockpit situational feeds</td>
           </tr>
           <tr>
             <td>Command, cyber &amp; naval</td>
             <td>Naval platform engineering · coastal surveillance</td>
-            <td>Coastal surveillance, corvette mission-system integration, sovereign decision-support, hardened infrastructure cyber protection</td>
+            <td>Coastal surveillance, corvette mission-system integration, national decision-support, hardened infrastructure cyber protection</td>
           </tr>
           <tr>
             <td>Integrated support</td>
@@ -177,7 +177,7 @@ require dirname(__DIR__) . '/includes/header.php';
       <article class="Card Card--flat Reveal">
         <div class="Card_B">
           <span class="Card_K">People</span>
-          <h3 class="Card_T">Sovereign operator training</h3>
+          <h3 class="Card_T">Operator training</h3>
           <p class="Card_D">Competency-based training for operators, maintainers and instructors, with records retained by the receiving authority.</p>
         </div>
       </article>

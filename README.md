@@ -1,7 +1,7 @@
 # EPiTEK Solutions — corporate website
 
-A fast, mobile-first PHP site for **EPiTEK Solutions**, regional defence, aerospace and
-mission-technology integrator for East Africa (Kenya, Uganda, Tanzania, Rwanda, Ethiopia).
+A fast, mobile-first PHP site for **EPiTEK Solutions**, the regional aviation and air-force
+support arm for STM in East Africa (Kenya, Uganda, Tanzania, Rwanda, Ethiopia).
 
 Built from the EPiTEK brand (navy `#294776`, accent blue `#207EB0`) and the site architecture in
 `docs/Epitex_Website_Blueprint.pdf`. The layout language is modelled on the reference site the

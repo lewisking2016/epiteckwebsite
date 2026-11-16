@@ -631,11 +631,24 @@ export async function initGlobe(host) {
     canvas.releasePointerCapture && canvas.releasePointerCapture(e.pointerId);
   };
 
+  // While a pointer is held down every move must rotate the globe; the hover
+  // raycast only runs when nothing is being dragged.
+  const onPointerMove = (e) => {
+    if (dragging) {
+      onDrag(e);
+      return;
+    }
+    onMove(e);
+  };
+
   canvas.addEventListener('pointerdown', onDown);
-  canvas.addEventListener('pointermove', onMove);
+  canvas.addEventListener('pointermove', onPointerMove);
   canvas.addEventListener('pointerup', onUp);
   canvas.addEventListener('pointercancel', onUp);
   canvas.addEventListener('pointerleave', onLeave);
+
+  // Vertical page scrolling inside the frame should not hijack a touch drag.
+  canvas.style.touchAction = 'none';
 
   /* --- Capital Focus Navigator ------------------------------------------ */
   function focusCapital(capId) {

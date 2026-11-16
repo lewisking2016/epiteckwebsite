@@ -483,6 +483,7 @@ strong { font-weight: 650; }
   width: 100%; height: 100%;
   cursor: grab;
   outline: none;
+  touch-action: none;   /* a drag rotates the globe instead of scrolling the page */
 }
 .Globe.is-drag .Globe_Canvas { cursor: grabbing; }
 

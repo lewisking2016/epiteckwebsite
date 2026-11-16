@@ -23,3 +23,9 @@ deploy.zip
 storage/app.sqlite
 storage/app.sqlite-shm
 storage/app.sqlite-wal
+
+# local test artefacts
+.cj.txt
+.cj2.txt
+.chk.txt
+.*-page.html

@@ -39,6 +39,12 @@ ErrorDocument 404 /404.php
   <FilesMatch "\.(jsonl|log|ini|py|md|sql|bak|env)$">
     Require all denied
   </FilesMatch>
+
+  # Version-control and environment files. /.well-known stays reachable so
+  # cPanel AutoSSL can keep renewing the certificate.
+  <FilesMatch "^\.[Gg]it|^\.env|^\.gitignore|^\.user\.ini">
+    Require all denied
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -52,6 +58,9 @@ ErrorDocument 404 /404.php
 
   # Exclude cgi-bin
   RewriteRule ^cgi-bin/ - [L]
+
+  # Block the version-control metadata that a Git deployment leaves behind
+  RewriteRule (^|/)\.git(/|$) - [F,L]
 
   # Block direct access to internal includes, storage and configuration
   RewriteRule ^includes/ - [F,L]

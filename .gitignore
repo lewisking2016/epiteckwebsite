@@ -19,6 +19,7 @@ cgi-bin/
 config/db.local.php
 setup_config.php
 diag.php
+deploy.zip
 storage/app.sqlite
 storage/app.sqlite-shm
 storage/app.sqlite-wal

@@ -95,9 +95,7 @@
         Procurement &amp; Dual-Use Export Compliance Notice
       </summary>
       <div class="Foot_Notice_B">
-        <p>EPiTEK Solutions engages with air forces, civil aviation authorities and government buyers under national procurement statutes, End-User Certification (EUC) requirements, and relevant international dual-use export control regimes.</p>
-        <p>Technical data sheets, tactical flight specifications, telemetry protocols, and live system demonstrations are released solely to verified institutional personnel following identity and eligibility validation. Statements of alliance or standard alignment denote operational compatibility and process compliance.</p>
-        <p>All institutional correspondence and RFPs submitted through this portal are treated as privileged and confidential under standard defence non-disclosure terms.</p>
+        <p>Work is delivered under national procurement rules, End-User Certification requirements and applicable dual-use export controls. Technical data is released to verified institutional recipients only. <a href="<?= e(url('/standards')) ?>">Standards &amp; compliance</a>.</p>
       </div>
     </details>
 

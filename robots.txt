@@ -5,4 +5,4 @@ Disallow: /includes/
 Disallow: /epiadmin/
 Disallow: /config/
 
-Sitemap: https://epitexsolution.africa/sitemap.xml
+Sitemap: https://epiteksolution.africa/sitemap.xml

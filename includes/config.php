@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 const SITE_NAME      = 'EPiTEK Solutions';
 const SITE_LEGAL     = 'EPiTEK Solutions';
-const SITE_DOMAIN    = 'epitexsolution.africa';
-const SITE_URL       = 'https://epitexsolution.africa';
+const SITE_DOMAIN    = 'epiteksolution.africa';
+const SITE_URL       = 'https://epiteksolution.africa';
 const SITE_TAGLINE   = 'Aviation and air-force support in East Africa';
 const SITE_EMAIL     = ''; // public mailbox — set once the new address exists; empty hides every email link
 const SITE_PHONE     = ''; // dispatch line — add when published

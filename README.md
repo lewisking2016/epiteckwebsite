@@ -63,12 +63,13 @@ arrays), `functions.php` (helpers/security), `header.php`, `domain-bar.php`, `fo
 ## 4. Editing content
 
 - **Company details, phone, LinkedIn, mail addresses:** `includes/config.php`.
-- **Domains, portfolio, standards table, services, countries, FAQ, metrics, briefs:** `includes/content.php`.
+- **Capabilities, services, standards table, training paths, countries, FAQ, metrics:** `includes/content.php`.
 - **Page-specific sections:** each page's `index.php` (plain PHP + HTML, escaped with `e()`).
 
-The visible wordmark is always **EPiTEK Solutions**. The blueprint gives the domain
-`epitexsolution.africa` and email `contact@epitexsolution.africa` (one "k"). Confirm the final
-legal spelling before launch (blueprint item V-7) and change it in one place, `config.php`.
+The visible wordmark is always **EPiTEK Solutions**, and the domain constants read
+`epiteksolution.africa`. Both are set in one place, `includes/config.php` (`SITE_DOMAIN`,
+`SITE_URL`), and every canonical URL, sitemap entry and footer line follows them. If the
+registered domain differs, change those two constants only.
 
 ## 5. Contact form
 
@@ -79,8 +80,8 @@ legal spelling before launch (blueprint item V-7) and change it in one place, `c
 
 ```php
 const MAIL_ENABLED = false;   // includes/config.php
-const MAIL_TO      = 'contact@epitexsolution.africa';
-const MAIL_FROM    = 'website@epitexsolution.africa';
+const MAIL_TO      = 'contact@epiteksolution.africa';
+const MAIL_FROM    = 'website@epiteksolution.africa';
 ```
 
 Set `MAIL_ENABLED` to `true` once the host can send mail (PHP `mail()` / local MTA). For SMTP,
@@ -131,7 +132,7 @@ These are the blueprint's `[V]` items. The site avoids unevidenced numbers (no 9
 | V-4 | ISO 9001 / AS9100 | Written as "aligned"; certificate numbers are supplied on request and no certification is claimed. |
 | V-5 | Test beds, factory-trained staff, field units | Described as capability, with evidence expected during due diligence. Replace with real counts/facilities before launch if available. |
 | V-6 | Product usage figures | Omitted. No platform, customer or volume figures are published; add only with documented evidence. |
-| V-7 | Epitex vs EPiTEK spelling | Site uses **EPiTEK Solutions** (from the logo); domain/email retain the blueprint spelling. Confirm and align. |
+| V-7 | Brand spelling | Resolved: the site, sitemap, robots file and config all use **EPiTEK Solutions** / `epiteksolution.africa`. Confirm the registered domain matches before launch. |
 
 Also replace before launch:
 

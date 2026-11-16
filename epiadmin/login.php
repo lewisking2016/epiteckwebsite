@@ -86,7 +86,7 @@ if (is_post()) {
       </div>
       <button class="A_Btn A_Btn--primary A_Btn--block" type="submit">Sign in</button>
       <p class="A_Auth_Note">Sessions are cookie-based, expire when you close the browser and are rate-limited after repeated failures.</p>
-      <a class="A_Auth_Back" href="<?= e(url('/')) ?>">← Back to epitexsolution.africa</a>
+      <a class="A_Auth_Back" href="<?= e(url('/')) ?>">← Back to <?= e(SITE_DOMAIN) ?></a>
     </form>
   </section>
 </main>

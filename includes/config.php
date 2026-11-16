@@ -10,7 +10,7 @@ const SITE_NAME      = 'EPiTEK Solutions';
 const SITE_LEGAL     = 'EPiTEK Solutions';
 const SITE_DOMAIN    = 'epitexsolution.africa';
 const SITE_URL       = 'https://epitexsolution.africa';
-const SITE_TAGLINE   = 'Regional aviation and air-force support arm in East Africa';
+const SITE_TAGLINE   = 'Aviation and air-force support in East Africa';
 const SITE_EMAIL     = ''; // public mailbox — set once the new address exists; empty hides every email link
 const SITE_PHONE     = ''; // dispatch line — add when published
 const SITE_LINKEDIN  = ''; // company page URL — add when published
@@ -58,9 +58,11 @@ $DOMAINS = [
 
 $NAV = [
     ['label' => 'Home', 'href' => '/', 'slug' => 'home'],
-    ['label' => 'Distributor hub', 'href' => '/distributor-integration', 'slug' => 'distributor-integration'],
-    ['label' => 'Partnership', 'href' => '/partnerships-stm', 'slug' => 'partnerships-stm'],
+    ['label' => 'Capabilities', 'href' => '/capabilities', 'slug' => 'capabilities'],
     ['label' => 'Services', 'href' => '/services', 'slug' => 'services'],
+    ['label' => 'Training', 'href' => '/training', 'slug' => 'training'],
+    ['label' => 'Standards', 'href' => '/standards', 'slug' => 'standards'],
+    ['label' => 'About', 'href' => '/about', 'slug' => 'about'],
 ];
 
 // Show errors locally, log them on the live host. Never display in production.

@@ -135,7 +135,7 @@ require dirname(__DIR__) . '/includes/header.php';
       </article>
       <article class="Card Reveal" data-domain-item data-domains="cyber air">
         <div class="Card_Pic">
-          <img src="<?= e(url('assets/img/uas-kargu.svg')) ?>" alt="UAS schematic with datalink and navigation annotations" width="860" height="640" loading="lazy" decoding="async">
+          <img src="<?= e(url('assets/img/tactical-uas.svg')) ?>" alt="UAS schematic with datalink and navigation annotations" width="860" height="640" loading="lazy" decoding="async">
           <span class="Card_Tag">Method 02</span>
         </div>
         <div class="Card_B">

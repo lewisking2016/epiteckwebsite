@@ -22,14 +22,13 @@ $barFilter = !empty($page['filterDomains']);
       <span class="DomainBar_Count" data-domain-count aria-live="polite"></span>
     <?php else: ?>
       <div class="DomainBar_C">
-        <a class="DChip" href="<?= e(url('/#domain-air')) ?>">Autonomous</a>
-        <a class="DChip" href="<?= e(url('/#domain-aviation')) ?>">Aviation</a>
-        <a class="DChip" href="<?= e(url('/#domain-cyber')) ?>">C4ISR</a>
-        <a class="DChip" href="<?= e(url('/#domain-support')) ?>">Sustainment</a>
+        <?php foreach ($CAPABILITIES as $cap): ?>
+          <a class="DChip" href="<?= e(url($cap['path'])) ?>"><?= e($cap['short']) ?></a>
+        <?php endforeach; ?>
       </div>
     <?php endif; ?>
-    <a class="DomainBar_A" href="<?= e(url('/distributor-integration')) ?>">
-      Integration hub <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg>
+    <a class="DomainBar_A" href="<?= e(url('/capabilities')) ?>">
+      All capabilities <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg>
     </a>
   </div>
 </div>

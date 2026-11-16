@@ -40,7 +40,7 @@ require dirname(__DIR__) . '/includes/header.php';
         <p>By using this website you accept these terms. If you do not accept them, please do not use the site. They apply to every visitor, whether you are browsing, submitting an enquiry, applying for training or signing in to the console.</p>
 
         <h3>2. Information only</h3>
-        <p>Content here is general information about EPiTEK Solutions, the STM portfolio it supports and the services it delivers in East Africa. It is not technical advice, a specification, an invitation to tender or a binding offer. Programme scope, pricing, delivery dates and support levels are agreed only in a signed contract or purchase order.</p>
+        <p>Content here is general information about EPiTEK Solutions and the services it delivers in East Africa. It is not technical advice, a specification, an invitation to tender or a binding offer. Programme scope, pricing, delivery dates and support levels are agreed only in a signed contract or purchase order.</p>
 
         <h3>3. Accuracy and change</h3>
         <p>Descriptions of programmes, markets and services are kept as current as is practical, but capability, availability and third-party portfolio details can change without notice. No warranty is given that every statement is complete or up to date at the moment you read it.</p>
@@ -49,7 +49,7 @@ require dirname(__DIR__) . '/includes/header.php';
         <p>You agree not to submit false details, to use the forms for unsolicited marketing, to attempt to access accounts or data that are not yours, to probe or disrupt the service, or to copy content for commercial use without written permission. Automated scraping of the console or the forms is not permitted.</p>
 
         <h3>5. Intellectual property</h3>
-        <p>The EPiTEK name, logo and the design and copy of this site belong to EPiTEK Solutions. Product and company names belonging to STM or other partners remain the property of their owners and are used descriptively to identify the portfolio and the working relationship. No licence is granted by viewing this site.</p>
+        <p>The EPiTEK name, logo and the design and copy of this site belong to EPiTEK Solutions. Third-party product and company names remain the property of their owners and are used descriptively where they identify equipment or standards in scope. No licence is granted by viewing this site.</p>
 
         <h3>6. Export control and eligibility</h3>
         <p>Some of the technology described is dual-use or defence-related. Nothing on this website is an offer to supply controlled items. Engagements are subject to national procurement law, end-user certification, sanctions screening and applicable export control regimes, and EPiTEK may decline an enquiry that does not satisfy those checks.</p>

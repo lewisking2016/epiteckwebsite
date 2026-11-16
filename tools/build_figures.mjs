@@ -924,7 +924,7 @@ function terrainScene(width, height, coverage) {
 /* ------------------------------------------------------------------ main */
 const only = process.argv.slice(2);
 const jobs = {
-  "uas-kargu": () => { const s = uasScene(860, 640); write("uas-kargu", 860, 640, s.label, s.body); },
+  "tactical-uas": () => { const s = uasScene(860, 640); write("tactical-uas", 860, 640, s.label, s.body); },
   avionics: () => { const s = avionicsScene(860, 640); write("avionics", 860, 640, s.label, s.body); },
   c4isr: () => { const s = c4isrScene(860, 640); write("c4isr", 860, 640, s.label, s.body); },
   naval: () => { const s = navalScene(860, 640); write("naval", 860, 640, s.label, s.body); },

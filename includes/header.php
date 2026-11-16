@@ -87,17 +87,16 @@ $shareImage = url('assets/img/og-image.png');
             Capabilities <svg class="Ico Ico--sm Nav_Car" aria-hidden="true"><use href="#i-chev"/></svg>
           </button>
           <div class="Nav_Panel" id="Nav_Cap" hidden>
-            <p class="Nav_Ph">Operational domains</p>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-air')) ?>"><strong>Air force &amp; unmanned systems</strong><span>Squadron support, tactical UAS, ISR</span></a>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-aviation')) ?>"><strong>Aviation software &amp; avionics</strong><span>Mission planning, moving maps, navigation</span></a>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-cyber')) ?>"><strong>Command &amp; surveillance</strong><span>Radar, command posts, coastal awareness</span></a>
-            <a class="Nav_Sub" href="<?= e(url('/#domain-support')) ?>"><strong>Depot &amp; sustainment</strong><span>MRO, spares, field teams</span></a>
-            <a class="Nav_All" href="<?= e(url('/#portfolio')) ?>">View the technology portfolio <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <p class="Nav_Ph">Capability areas</p>
+            <?php foreach ($CAPABILITIES as $cap): ?>
+            <a class="Nav_Sub" href="<?= e(url($cap['path'])) ?>"><strong><?= e($cap['name']) ?></strong><span><?= e($cap['tagline']) ?></span></a>
+            <?php endforeach; ?>
+            <a class="Nav_All" href="<?= e(url('/capabilities')) ?>">All capabilities <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </li>
-        <li class="Nav_Item"><a class="Nav_A<?= nav_active('distributor-integration', $navSlug) ?>" href="<?= e(url('/distributor-integration')) ?>"<?= is_current('distributor-integration', $navSlug) ?>>Distributor hub</a></li>
-        <li class="Nav_Item"><a class="Nav_A<?= nav_active('partnerships-stm', $navSlug) ?>" href="<?= e(url('/partnerships-stm')) ?>"<?= is_current('partnerships-stm', $navSlug) ?>>Partnership</a></li>
         <li class="Nav_Item"><a class="Nav_A<?= nav_active('services', $navSlug) ?>" href="<?= e(url('/services')) ?>"<?= is_current('services', $navSlug) ?>>Services</a></li>
+        <li class="Nav_Item"><a class="Nav_A<?= nav_active('standards', $navSlug) ?>" href="<?= e(url('/standards')) ?>"<?= is_current('standards', $navSlug) ?>>Standards</a></li>
+        <li class="Nav_Item"><a class="Nav_A<?= nav_active('about', $navSlug) ?>" href="<?= e(url('/about')) ?>"<?= is_current('about', $navSlug) ?>>About</a></li>
       </ul>
     </nav>
 
@@ -126,16 +125,18 @@ $shareImage = url('assets/img/og-image.png');
   </div>
   <nav class="Drawer_Nav" aria-label="Mobile">
     <a href="<?= e(url('/')) ?>">Home <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a href="<?= e(url('/distributor-integration')) ?>">Distributor hub <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    <a href="<?= e(url('/partnerships-stm')) ?>">Partnership <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/capabilities')) ?>">Capabilities <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a href="<?= e(url('/services')) ?>">Services <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/training')) ?>">Training <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/standards')) ?>">Standards <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="<?= e(url('/about')) ?>">About <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a href="<?= e(url('/apply')) ?>">Apply for training <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     <a href="<?= e(url('/contact')) ?>">Contact <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
   </nav>
   <div class="Drawer_Domains">
-    <p class="Drawer_L">Operational domains</p>
-    <?php foreach ($DOMAINS as $key => $domain): ?>
-      <a href="<?= e(url('/#domain-' . $key)) ?>"><?= e($domain['label']) ?></a>
+    <p class="Drawer_L">Capability areas</p>
+    <?php foreach ($CAPABILITIES as $cap): ?>
+      <a href="<?= e(url($cap['path'])) ?>"><?= e($cap['name']) ?></a>
     <?php endforeach; ?>
   </div>
   <div class="Drawer_Meta">

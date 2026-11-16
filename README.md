@@ -1,13 +1,12 @@
 # EPiTEK Solutions — corporate website
 
-A fast, mobile-first PHP site for **EPiTEK Solutions**, the regional aviation and air-force
-support arm for STM in East Africa (Kenya, Uganda, Tanzania, Rwanda, Ethiopia).
+A fast, mobile-first PHP site for **EPiTEK Solutions**, an aviation and air-force engineering,
+integration, training and sustainment company working across East Africa (Kenya, Uganda, Tanzania,
+Rwanda, Ethiopia).
 
-Built from the EPiTEK brand (navy `#294776`, accent blue `#207EB0`) and the site architecture in
-`docs/Epitex_Website_Blueprint.pdf`. The layout language is modelled on the reference site the
-client supplied (`st-modelisation.fr`): sticky translucent header, dark technical hero, mono
-eyebrows, display-grotesque headings, card bands, navy data-table band and a numbered "why" row.
-No code, copy or assets from that site were copied.
+Built from the EPiTEK brand (navy `#294776`, accent blue `#207EB0`). Each subject has its own page:
+capabilities, services, training, standards and company. Nothing on the site names or claims a
+relationship with any third-party manufacturer or its products.
 
 ---
 
@@ -38,11 +37,25 @@ or in a subfolder. `.htaccess` needs `AllowOverride All` for the clean-URL and d
 
 | URL | File | Purpose |
 |---|---|---|
-| `/` | `index.php` | Positioning, domains, portfolio, standards, sustainment, footprint, FAQ |
-| `/distributor-integration` | `distributor-integration/index.php` | Logistics, integration architecture, depot, quality |
-| `/partnerships-stm` | `partnerships-stm/index.php` | Mandate, portfolio table, joint execution, territory |
-| `/services` | `services/index.php` | Five services, SLA tiers, training pathway, advisory |
-| `/contact` | `contact/index.php` | Enterprise enquiry form + compliance notice (also 404 page) |
+| `/` | `index.php` | Short introduction, four capability cards, operating model |
+| `/capabilities` | `capabilities/index.php` | Hub for the four capability areas |
+| `/capabilities/air-force` | `capabilities/air-force/index.php` | Air force and uncrewed systems |
+| `/capabilities/aviation-software` | `capabilities/aviation-software/index.php` | Mission software and avionics |
+| `/capabilities/command-surveillance` | `capabilities/command-surveillance/index.php` | Sensors, command posts, coastal awareness |
+| `/capabilities/depot-sustainment` | `capabilities/depot-sustainment/index.php` | Depot maintenance and spares |
+| `/services` | `services/index.php` | Hub for the five services + FAQ |
+| `/services/avionics-maintenance` | `services/avionics-maintenance/index.php` | Avionics maintenance engineering |
+| `/services/compliance-training` | `services/compliance-training/index.php` | ICAO and EUROCONTROL training |
+| `/services/uas-training` | `services/uas-training/index.php` | UAS operator certification |
+| `/services/support-desk` | `services/support-desk/index.php` | Tiered support desk |
+| `/services/advisory` | `services/advisory/index.php` | Technical advisory |
+| `/training` | `training/index.php` | Four-stage training pathway |
+| `/standards` | `standards/index.php` | Standards table and export control |
+| `/about` | `about/index.php` | Company, commitments, footprint |
+| `/distributor-integration` | `distributor-integration/index.php` | Logistics, integration architecture, depot |
+| `/contact` | `contact/index.php` | Enquiry form + compliance notice |
+| `/apply` | `apply/index.php` | Training and organisation application form |
+| `/privacy` `/cookies` `/terms` `/security` | `*/index.php` | Legal and security pages |
 
 Shared code lives in `includes/`: `config.php` (brand + constants), `content.php` (all editorial
 arrays), `functions.php` (helpers/security), `header.php`, `domain-bar.php`, `footer.php`.
@@ -112,12 +125,12 @@ These are the blueprint's `[V]` items. The site avoids unevidenced numbers (no 9
 
 | Ref | Item | Current site behaviour |
 |---|---|---|
-| V-1 | "Authorised regional partner/distributor" for STM | Used as positioning, with an explicit statement that authorisation letters must be supplied and that the page is not a legal instrument. Publish only after the signed document exists. |
-| V-2 | Reference link `st-modelisation.fr` | The reference is **STM® Société Toulousaine de Modélisation**, a French company, *not* the Turkish defence company STM. Only the design language was used; no content. Use `stm.com.tr` for STM facts. |
+| V-1 | Partner or distributor claims | Removed. The site makes no representation, distribution or partnership claim for any third-party company or product. Add a partner page only when a signed agreement exists and the other party approves the wording and marks. |
+| V-2 | Third-party site resemblance | The previous layout mirrored a supplied reference site. Pages are now organised by subject and written independently; no third-party copy, marks or product names are used. |
 | V-3 | 99.9% uptime | Not published. Replaced with a "<2 h Tier 1 response target" clearly labelled a service objective. |
 | V-4 | ISO 9001 / AS9100 | Written as "aligned"; certificate numbers are supplied on request and no certification is claimed. |
 | V-5 | Test beds, factory-trained staff, field units | Described as capability, with evidence expected during due diligence. Replace with real counts/facilities before launch if available. |
-| V-6 | FocusFlite "75+ platforms" | Omitted. Add only once the manufacturer confirms the figure and wording. |
+| V-6 | Product usage figures | Omitted. No platform, customer or volume figures are published; add only with documented evidence. |
 | V-7 | Epitex vs EPiTEK spelling | Site uses **EPiTEK Solutions** (from the logo); domain/email retain the blueprint spelling. Confirm and align. |
 
 Also replace before launch:

@@ -34,9 +34,9 @@ require __DIR__ . '/includes/header.php';
 <section class="Section">
   <div class="Wrap">
     <div class="Grid Grid--4">
-      <a class="Card Card--flat" href="<?= e(url('/#domains')) ?>"><div class="Card_B"><span class="Card_K">Capabilities</span><h2 class="Card_T">Operational domains</h2></div></a>
-      <a class="Card Card--flat" href="<?= e(url('/distributor-integration')) ?>"><div class="Card_B"><span class="Card_K">Company</span><h2 class="Card_T">Distributor hub</h2></div></a>
-      <a class="Card Card--flat" href="<?= e(url('/services')) ?>"><div class="Card_B"><span class="Card_K">Support</span><h2 class="Card_T">Training &amp; services</h2></div></a>
+      <a class="Card Card--flat" href="<?= e(url('/capabilities')) ?>"><div class="Card_B"><span class="Card_K">Capabilities</span><h2 class="Card_T">Capability areas</h2></div></a>
+      <a class="Card Card--flat" href="<?= e(url('/about')) ?>"><div class="Card_B"><span class="Card_K">Company</span><h2 class="Card_T">About EPiTEK</h2></div></a>
+      <a class="Card Card--flat" href="<?= e(url('/services')) ?>"><div class="Card_B"><span class="Card_K">Support</span><h2 class="Card_T">Services</h2></div></a>
       <a class="Card Card--flat" href="<?= e(url('/contact')) ?>"><div class="Card_B"><span class="Card_K">Enquiry</span><h2 class="Card_T">Contact</h2></div></a>
     </div>
   </div>

@@ -10,21 +10,22 @@ $successRef = null;
 $mailSent = false;
 
 $interestOptions = [
-    'aviation'    => 'Avionics & mission software',
-    'recon'       => 'Reconnaissance UAS',
-    'loitering'   => 'Tactical loitering munitions',
-    'c4i'         => 'C4I infrastructure',
-    'maintenance' => 'Maintenance & training contracts',
+    'air-force'            => 'Air force & unmanned systems',
+    'aviation-software'    => 'Aviation software & avionics',
+    'command-surveillance' => 'Command & surveillance',
+    'depot-sustainment'    => 'Depot & sustainment',
+    'training'             => 'Training',
 ];
 $countryOptions = ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Ethiopia', 'Other'];
 $envOptions = ['Border / land', 'Maritime / coastal', 'Airbase / aviation', 'Urban / critical infrastructure', 'Training academy', 'Other'];
 $timelineOptions = ['Immediate (under 3 months)', '3–6 months', '6–12 months', 'Beyond 12 months', 'Not yet defined'];
 $demoOptions = ['virtual' => 'Virtual architecture review', 'in-country' => 'In-country field demonstration'];
 $topicMap = [
-    'uas' => 'loitering', 'kargu' => 'loitering', 'alpagub' => 'loitering',
-    'togan' => 'recon', 'boyga' => 'recon',
-    'focusflite' => 'aviation', 'aviation' => 'aviation', 'naval' => 'c4i', 'c4i' => 'c4i',
-    'sla' => 'maintenance', 'training' => 'maintenance', 'brief' => 'aviation',
+    'air-force' => 'air-force', 'uas' => 'air-force', 'isr' => 'air-force',
+    'aviation-software' => 'aviation-software', 'aviation' => 'aviation-software', 'briefing' => 'aviation-software',
+    'command-surveillance' => 'command-surveillance', 'c4i' => 'command-surveillance', 'surveillance' => 'command-surveillance',
+    'depot-sustainment' => 'depot-sustainment', 'sla' => 'depot-sustainment', 'support' => 'depot-sustainment',
+    'training' => 'training',
 ];
 
 $prefTopic = isset($_GET['topic']) ? (string) $_GET['topic'] : '';
@@ -212,7 +213,7 @@ $page = [
     'nav'         => 'contact',
     'path'        => '/contact',
     'title'       => 'Contact and briefing request | EPiTEK Solutions',
-    'description' => 'Request a capability briefing, technical data sheet or support consultation from EPiTEK Solutions, the regional support arm for STM in East Africa.',
+    'description' => 'Request a capability briefing, technical data sheet or support consultation from the EPiTEK Solutions regional team in Nairobi, Kenya.',
     'heroImage'   => 'assets/img/hero-terrain.svg',
     'hideCta'     => true,
     'bodyClass'   => 'Page--contact',

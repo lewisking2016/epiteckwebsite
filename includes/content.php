@@ -2,147 +2,259 @@
 declare(strict_types=1);
 
 /**
- * Editorial content, kept separate from markup so it can be reviewed and edited safely.
- * Position: EPiTEK is STM's regional aviation and air-force support arm in East Africa.
+ * Editorial content, kept separate from markup so it can be reviewed safely.
+ * One page = one subject. Long-form material lives on its own page.
  */
 
-$COMPETENCIES = [
+$CAPABILITIES = [
     [
-        'n' => '01',
-        'title' => 'Aviation software & avionics integration',
-        'desc' => 'Mission planning, airborne moving maps and avionics integration into existing fixed and rotary wing fleets, delivered with the interface documentation an audit expects.',
-        'domains' => ['aviation', 'air'],
+        'slug'    => 'air-force',
+        'path'    => '/capabilities/air-force',
+        'name'    => 'Air force & unmanned systems',
+        'short'   => 'Air force',
+        'tagline' => 'Squadron support and uncrewed systems',
+        'summary' => 'Squadron-level technical support, surveillance payloads and uncrewed systems integration for mixed fleets across East Africa.',
+        'intro'   => 'Regional air forces fly small, mixed fleets where every airframe carries more tasking than it was bought for. We work to that reality: keeping crews supported, payloads serviceable and uncrewed systems integrated into the chain of command that already exists.',
+        'img'     => 'assets/img/tactical-uas.svg',
+        'alt'     => 'Technical schematic of a quad-rotor unmanned system with payload and navigation annotations',
+        'meta'    => ['Squadron support', 'UAS integration', 'ISR payloads'],
+        'sections' => [
+            [
+                'h' => 'What we support',
+                'p' => 'Support is scoped around the aircraft and systems already on strength, not a preferred product list.',
+                'list' => [
+                    'Squadron-level technical support and fault diagnosis',
+                    'Surveillance payload integration and calibration',
+                    'Uncrewed system commissioning and acceptance testing',
+                    'Operator and maintainer training with a retained competency file',
+                ],
+            ],
+            [
+                'h' => 'How an engagement runs',
+                'p' => 'We start with a written inventory and a fault history, then agree what "serviceable" means for each platform before work begins. Deliverables are documented, so a later audit can follow the same trail.',
+            ],
+        ],
     ],
     [
-        'n' => '02',
-        'title' => 'Fleet sustainment and depot support',
-        'desc' => 'Depot-level maintenance, calibration, spares and field dispatch that shorten the repair loop for aircraft and unmanned systems.',
-        'domains' => ['support'],
+        'slug'    => 'aviation-software',
+        'path'    => '/capabilities/aviation-software',
+        'name'    => 'Aviation software & avionics',
+        'short'   => 'Aviation',
+        'tagline' => 'Mission planning, moving maps, cockpit awareness',
+        'summary' => 'Mission planning, digital moving maps and cockpit situational awareness that modernise a fleet without replacing the airframe.',
+        'intro'   => 'Most of the value in a fleet upgrade sits in the cockpit, not in a new airframe. We integrate mission software and avionics around the aircraft you already operate, and hand over the interface documentation an audit will ask for.',
+        'img'     => 'assets/img/avionics.svg',
+        'alt'     => 'Cockpit mission display with moving map, route and telemetry readouts',
+        'meta'    => ['Mission planning', 'Moving maps', 'Avionics integration'],
+        'sections' => [
+            [
+                'h' => 'What we deliver',
+                'p' => 'Software and integration work scoped to the platform, the role and the airspace it flies in.',
+                'list' => [
+                    'Digital moving map with terrain and obstacle awareness',
+                    'Route and mission planning, including off-line planning',
+                    'Terrain-aided navigation for degraded satellite conditions',
+                    'Cockpit situational awareness displays',
+                    'Interface control and installation documentation',
+                ],
+            ],
+            [
+                'h' => 'Integration without a rebuild',
+                'p' => 'Work is sequenced so the aircraft stays available: survey the existing avionics, agree the interfaces, install and test on the ground, then fly a defined acceptance profile. Nothing is declared complete until the receiving unit signs the record.',
+            ],
+        ],
     ],
     [
-        'n' => '03',
-        'title' => 'Training and competency records',
-        'desc' => 'Operator, maintainer and instructor training delivered in region, each cohort closed with an individual competency file retained by the receiving unit.',
-        'domains' => ['aviation', 'support'],
+        'slug'    => 'command-surveillance',
+        'path'    => '/capabilities/command-surveillance',
+        'name'    => 'Command & surveillance',
+        'short'   => 'Command',
+        'tagline' => 'Sensors, command posts and coastal awareness',
+        'summary' => 'Radar, sensor and command-post integration into a single operational picture, including coastal surveillance and hardened mission networks.',
+        'intro'   => 'A sensor is only useful if the picture reaches the person making the decision. We integrate radar, electro-optical payloads and command posts so that air, land and maritime tasking share one picture instead of three disconnected ones.',
+        'img'     => 'assets/img/c4isr.svg',
+        'alt'     => 'Network diagram linking command, radar and surveillance nodes in a common operating picture',
+        'meta'    => ['Sensor integration', 'Command posts', 'Coastal awareness'],
+        'sections' => [
+            [
+                'h' => 'Where we work',
+                'p' => 'Integration is planned around the operational question, then engineered backwards to the sensors and links that answer it.',
+                'list' => [
+                    'Radar and electro-optical sensor integration',
+                    'Command-post layout, displays and operating procedures',
+                    'Coastal and maritime surveillance coverage planning',
+                    'Hardened mission networks and link management',
+                ],
+            ],
+            [
+                'h' => 'Coverage before equipment',
+                'p' => 'Coverage studies come first: what must be seen, from where, with what reaction time. Only then does the sensor mix follow. This keeps procurement tied to a requirement rather than to a catalogue.',
+            ],
+        ],
     ],
     [
-        'n' => '04',
-        'title' => 'Procurement and logistics',
-        'desc' => 'Hardware and software acquisition that follows national procurement frameworks, from requirement definition to delivery, acceptance and end-user documentation.',
-        'domains' => ['support'],
+        'slug'    => 'depot-sustainment',
+        'path'    => '/capabilities/depot-sustainment',
+        'name'    => 'Depot & sustainment',
+        'short'   => 'Sustainment',
+        'tagline' => 'Depot maintenance, spares and field teams',
+        'summary' => 'Depot-level maintenance, calibration, spares holding and mobile engineering teams that shorten the repair loop.',
+        'intro'   => 'Availability is decided after delivery, in the depot. We build the maintenance loop around the fleet: what is repaired at depot, what is repaired forward, what is held as spares, and who signs the aircraft back to service.',
+        'img'     => 'assets/img/depot.svg',
+        'alt'     => 'Depot maintenance bench with calibration, battery management and traceability callouts',
+        'meta'    => ['Depot MRO', 'Spares & calibration', 'Field teams'],
+        'sections' => [
+            [
+                'h' => 'The maintenance loop',
+                'p' => 'Each element is defined in writing so the boundary between operator, depot and supplier is never in question during a fault.',
+                'list' => [
+                    'Depot-level maintenance and structural repair',
+                    'Sensor, antenna and test-equipment calibration',
+                    'Spares modelling, holding and dispatch',
+                    'Battery management and service-life tracking',
+                    'Mobile engineering teams for forward repair',
+                ],
+            ],
+            [
+                'h' => 'Records that survive handover',
+                'p' => 'Every intervention produces a record: what failed, what was replaced, what was measured, who released the asset. Those records are the difference between a maintained fleet and a fleet that is assumed to be maintained.',
+            ],
+        ],
     ],
 ];
 
-$PORTFOLIO = [
+$SERVICES = [
     [
-        'slug' => 'focusflite',
-        'name' => 'FocusFlite',
-        'role' => 'Mission software',
-        'desc' => 'Modular mission software for rotary and fixed-wing platforms: digital moving map, route planning, cockpit situational awareness and legacy cockpit modernisation.',
-        'img' => 'assets/img/avionics.svg',
-        'alt' => 'Cockpit mission display with moving map, flight route and telemetry readouts',
-        'domains' => ['aviation'],
-        'tag' => 'Aviation software',
-        'cta' => 'Book software architecture briefing',
+        'slug'    => 'avionics-maintenance',
+        'path'    => '/services/avionics-maintenance',
+        'title'   => 'Avionics maintenance engineering',
+        'short'   => 'Avionics maintenance',
+        'summary' => 'Line-replaceable unit diagnostics, sensor calibration and structural repair protocols at depot or on site.',
+        'intro'   => 'Fault isolation done properly the first time, with the test evidence to prove the unit is serviceable before it goes back on the aircraft.',
+        'img'     => 'assets/img/depot.svg',
+        'alt'     => 'Maintenance bench with calibration and traceability callouts',
+        'meta'    => ['Depot or on site', 'Calibration included'],
+        'sections' => [
+            [
+                'h' => 'Included in the scope',
+                'p' => 'Scoped per platform and per test equipment available at the site.',
+                'list' => [
+                    'Line-replaceable unit fault isolation and repair',
+                    'Sensor and antenna calibration',
+                    'Structural repair protocols',
+                    'Return-to-service documentation',
+                ],
+            ],
+        ],
     ],
     [
-        'slug' => 'togan',
-        'name' => 'TOGAN',
-        'role' => 'Reconnaissance UAS',
-        'desc' => 'Surveillance and reconnaissance platform for border patrol, dense terrain and wide-area overwatch, with onboard computer vision for contested environments.',
-        'img' => 'assets/img/c4isr.svg',
-        'alt' => 'Network diagram linking command, radar, UAS and naval nodes in a common operating picture',
-        'domains' => ['air', 'cyber'],
-        'tag' => 'ISR',
-        'cta' => 'Request tactical data sheet',
+        'slug'    => 'compliance-training',
+        'path'    => '/services/compliance-training',
+        'title'   => 'ICAO & EUROCONTROL compliance training',
+        'short'   => 'Compliance training',
+        'summary' => 'Training for air traffic coordinators and air force staff on shared-airspace deconfliction and evidence retention.',
+        'intro'   => 'Shared airspace is a procedure problem before it is an equipment problem. This track gives civil and military staff the same vocabulary and the same record-keeping discipline.',
+        'img'     => 'assets/img/avionics.svg',
+        'alt'     => 'Mission planning display used for airspace coordination training',
+        'meta'    => ['Civil and military', 'In-country delivery'],
+        'sections' => [
+            [
+                'h' => 'Course content',
+                'p' => 'Delivered as a cohort course with an assessment at the end of each module.',
+                'list' => [
+                    'Shared-airspace deconfliction procedures',
+                    'ICAO standards and recommended practices',
+                    'EUROCONTROL interoperability and coordination',
+                    'Assessment and evidence records',
+                ],
+            ],
+        ],
     ],
     [
-        'slug' => 'kargu',
-        'name' => 'KARGU',
-        'role' => 'Tactical loitering munition',
-        'desc' => 'Rotary-wing loitering munition for precision engagement and reconnaissance, designed to keep working when satellite navigation is jammed or degraded.',
-        'img' => 'assets/img/uas-kargu.svg',
-        'alt' => 'Technical schematic of a quad-rotor tactical unmanned aerial system with EO/IR payload annotations',
-        'domains' => ['air'],
-        'tag' => 'Autonomous systems',
-        'cta' => 'Request tactical data sheet',
+        'slug'    => 'uas-training',
+        'path'    => '/services/uas-training',
+        'title'   => 'UAS operator certification',
+        'short'   => 'UAS operator training',
+        'summary' => 'Simulation and live flight training covering emergency recovery, payload management and multi-platform command.',
+        'intro'   => 'Operators are certified against a written standard, with simulation used for the situations that are unsafe or expensive to rehearse in the air.',
+        'img'     => 'assets/img/tactical-uas.svg',
+        'alt'     => 'Unmanned system schematic used in operator training',
+        'meta'    => ['Simulation first', 'Assessed per operator'],
+        'sections' => [
+            [
+                'h' => 'Competencies assessed',
+                'p' => 'Each operator closes the course with an individual competency file held by the receiving unit.',
+                'list' => [
+                    'Mission planning and pre-flight discipline',
+                    'Emergency and lost-link recovery',
+                    'Payload release and safety drills',
+                    'Multi-platform command',
+                ],
+            ],
+        ],
     ],
     [
-        'slug' => 'boyga',
-        'name' => 'BOYGA',
-        'role' => 'Precision payload UAS',
-        'desc' => 'Mortar payload delivery from the air for asymmetric operations, with stabilised drop and operator-controlled release.',
-        'img' => 'assets/img/depot.svg',
-        'alt' => 'Line drawing of a UAS on a maintenance bench with calibration and battery management callouts',
-        'domains' => ['air'],
-        'tag' => 'Payload delivery',
-        'cta' => 'Request tactical data sheet',
+        'slug'    => 'support-desk',
+        'path'    => '/services/support-desk',
+        'title'   => 'Technical support desk',
+        'short'   => 'Support desk',
+        'summary' => 'Tiered response windows, named escalation owners and a duty engineer for critical platform failures.',
+        'intro'   => 'A support agreement that names the person who answers, the window they answer within, and the point at which a spares decision is taken.',
+        'img'     => 'assets/img/c4isr.svg',
+        'alt'     => 'Command and support network diagram',
+        'meta'    => ['Tier 1 target under 2 h', 'Monthly reporting'],
+        'sections' => [
+            [
+                'h' => 'What the agreement covers',
+                'p' => 'Terms are agreed per platform and per deployment, then written into the SLA.',
+                'list' => [
+                    'Tier 1 response under two hours (target)',
+                    'Remote diagnostics and configuration support',
+                    'Spares dispatch and repair tracking',
+                    'Monthly service reporting',
+                ],
+            ],
+        ],
     ],
     [
-        'slug' => 'alpagub',
-        'name' => 'ALPAGU-B',
-        'role' => 'Fixed-wing loitering munition',
-        'desc' => 'Fixed-wing loitering munition for extended endurance surveillance and precision engagement over perimeter and corridor sectors.',
-        'img' => 'assets/img/hero-terrain.svg',
-        'alt' => 'Dark terrain contour map with navigation vectors and waypoint markers',
-        'domains' => ['air'],
-        'tag' => 'Autonomous systems',
-        'cta' => 'Request tactical data sheet',
+        'slug'    => 'advisory',
+        'path'    => '/services/advisory',
+        'title'   => 'Technical advisory',
+        'short'   => 'Advisory',
+        'summary' => 'Needs analysis and requirement definition for ministries, civil aviation authorities and border services.',
+        'intro'   => 'Most procurement problems begin as a requirement problem. Advisory work produces a defensible requirement before equipment is discussed.',
+        'img'     => 'assets/img/hero-terrain.svg',
+        'alt'     => 'Contour map used for coverage and requirement studies',
+        'meta'    => ['Decision document', 'Cost envelope included'],
+        'sections' => [
+            [
+                'h' => 'Typical studies',
+                'p' => 'Each engagement closes with an options appraisal, a cost envelope and a risk register.',
+                'list' => [
+                    'Airspace and fleet capability studies',
+                    'Border and perimeter coverage design',
+                    'Maritime domain awareness studies',
+                    'Capability roadmap and cost modelling',
+                ],
+            ],
+        ],
     ],
 ];
 
 $STANDARDS = [
     ['standard' => 'ICAO', 'scope' => 'Airspace and aviation standards', 'apply' => 'Interface, documentation and training alignment for civil and military airspace users', 'status' => 'Aligned'],
     ['standard' => 'EUROCONTROL', 'scope' => 'ATM interoperability', 'apply' => 'Shared-airspace deconfliction and coordination procedures', 'status' => 'Referenced'],
-    ['standard' => 'NATO STANAG', 'scope' => 'Coalition interoperability', 'apply' => 'Tactical data links and command-and-control interface conventions', 'status' => 'Referenced'],
+    ['standard' => 'NATO STANAG', 'scope' => 'Coalition interoperability', 'apply' => 'Tactical data link and command-interface conventions', 'status' => 'Referenced'],
     ['standard' => 'ISO 9001', 'scope' => 'Quality management', 'apply' => 'Quality processes mapped to audited procedures; certificates supplied on request', 'status' => 'Aligned'],
     ['standard' => 'AS9100', 'scope' => 'Aerospace quality', 'apply' => 'Aerospace-grade process controls where applicable; certificates supplied on request', 'status' => 'Aligned'],
-    ['standard' => 'National export-control regimes', 'scope' => 'Military and dual-use items', 'apply' => 'End-user screening and authorisation tracking before any release', 'status' => 'Required'],
+    ['standard' => 'National export controls', 'scope' => 'Military and dual-use items', 'apply' => 'End-user screening and authorisation tracking before any release', 'status' => 'Required'],
 ];
 
 $METRICS = [
     ['value' => '5', 'label' => 'Countries served', 'detail' => 'Kenya, Uganda, Tanzania, Rwanda and Ethiopia'],
     ['value' => '4', 'label' => 'Capability areas', 'detail' => 'One regional programme office'],
-    ['value' => '< 2 h', 'label' => 'Tier 1 response target', 'detail' => 'Service objective, agreed per support agreement'],
-    ['value' => '1 day', 'label' => 'Standard enquiry response', 'detail' => 'Working day, regional technical team'],
-];
-
-$SERVICES = [
-    [
-        'slug' => 'avionics-maintenance',
-        'title' => 'Avionics maintenance engineering',
-        'desc' => 'Line-replaceable unit diagnostics, field sensor calibration and structural repair protocols, performed at depot or on site.',
-        'items' => ['LRU fault isolation and repair', 'Sensor and antenna calibration', 'Structural repair protocols', 'Return-to-service documentation'],
-        'domains' => ['support', 'aviation'],
-    ],
-    [
-        'slug' => 'icao-compliance',
-        'title' => 'ICAO and EUROCONTROL compliance modules',
-        'desc' => 'Training for air traffic coordinators and air force staff on shared airspace deconfliction, standards and evidence retention.',
-        'items' => ['Shared airspace deconfliction', 'ICAO standards and recommended practices', 'EUROCONTROL interoperability and coordination', 'Assessment and evidence records'],
-        'domains' => ['aviation'],
-    ],
-    [
-        'slug' => 'uas-pilot',
-        'title' => 'Tactical UAS operator certification',
-        'desc' => 'Simulation and live flight training covering emergency recovery, payload management and multi-platform command, delivered against a documented competency record.',
-        'items' => ['Mission planning and pre-flight discipline', 'Emergency and lost-link recovery', 'Payload release and safety drills', 'Multi-platform command'],
-        'domains' => ['air'],
-    ],
-    [
-        'slug' => 'support-desk',
-        'title' => 'Technical support desk',
-        'desc' => 'SLA tiers with defined response windows, escalation paths and a duty engineer for critical platform failures.',
-        'items' => ['Tier 1 response under two hours (target)', 'Remote diagnostics and configuration support', 'Spares dispatch and repair tracking', 'Monthly service reporting'],
-        'domains' => ['support'],
-    ],
-    [
-        'slug' => 'advisory',
-        'title' => 'Technical advisory and aviation consulting',
-        'desc' => 'Needs analysis for ministries and civil aviation authorities across airspace modernisation, border security and maritime domain awareness.',
-        'items' => ['Airspace and fleet capability studies', 'Border security perimeter design', 'Maritime domain awareness studies', 'Capability roadmap and cost modelling'],
-        'domains' => ['cyber', 'support'],
-    ],
+    ['value' => '< 2 h', 'label' => 'Tier 1 response target', 'detail' => 'Service objective, agreed per agreement'],
+    ['value' => '1 day', 'label' => 'Enquiry response', 'detail' => 'Working day, regional team'],
 ];
 
 $COUNTRIES = [
@@ -154,55 +266,49 @@ $COUNTRIES = [
 ];
 
 $WHY = [
-    ['n' => '01', 'title' => 'A regional arm, not a distant supplier', 'desc' => 'Mission software, integration, training and sustainment sit under one regional programme office, not four vendors.'],
-    ['n' => '02', 'title' => 'Engineering in theatre', 'desc' => 'Factory-trained engineers and test facilities positioned to respond within the region, not across a continent.'],
-    ['n' => '03', 'title' => 'Evidence, not slogans', 'desc' => 'Acceptance tests, calibration records and training files are documented and available for audit.'],
-    ['n' => '04', 'title' => 'Built for sovereign procurement', 'desc' => 'Work delivered within national procurement rules, end-user controls and dual-use authorisations.'],
-];
-
-$BRIEFS = [
-    [
-        'topic' => 'Aviation software',
-        'title' => 'Modernising a legacy cockpit without replacing the airframe',
-        'desc' => 'Where mission software creates value first, and how to scope a digital moving map upgrade around existing avionics.',
-        'read' => 'Request this brief',
-    ],
-    [
-        'topic' => 'Standards',
-        'title' => 'ICAO and EUROCONTROL alignment: what procurement teams should ask for',
-        'desc' => 'How to read a compliance statement, which evidence to request, and where alignment ends and certification begins.',
-        'read' => 'Request this brief',
-    ],
-    [
-        'topic' => 'Sustainment',
-        'title' => 'Designing a regional maintenance depot that actually reduces downtime',
-        'desc' => 'Spares modelling, calibration capability, battery management and the handover files that keep fleets serviceable.',
-        'read' => 'Request this brief',
-    ],
+    ['n' => '01', 'title' => 'Engineering in theatre', 'desc' => 'Engineers and instructors based in the region, not flown in per project.'],
+    ['n' => '02', 'title' => 'One programme office', 'desc' => 'Requirement, integration, training and sustainment under a single accountable team.'],
+    ['n' => '03', 'title' => 'Evidence, not slogans', 'desc' => 'Acceptance tests, calibration records and training files documented and available for audit.'],
+    ['n' => '04', 'title' => 'Built for sovereign procurement', 'desc' => 'Work delivered within national procurement rules, end-user controls and dual-use authorisation.'],
 ];
 
 $TRAINING_PATHS = [
-    ['phase' => 'Foundation', 'title' => 'Standards and shared airspace', 'desc' => 'ICAO and EUROCONTROL framework, airspace coordination and civil-military deconfliction for air force and civil staff.'],
-    ['phase' => 'Operator', 'title' => 'UAS operator certification', 'desc' => 'Mission planning, emergency and lost-link recovery, payload management and multi-platform command, assessed per operator.'],
+    ['phase' => 'Foundation', 'title' => 'Standards and shared airspace', 'desc' => 'ICAO and EUROCONTROL framework, airspace coordination and civil-military deconfliction.'],
+    ['phase' => 'Operator', 'title' => 'UAS operator certification', 'desc' => 'Mission planning, emergency and lost-link recovery, payload management and multi-platform command.'],
     ['phase' => 'Maintainer', 'title' => 'Avionics and depot maintenance', 'desc' => 'LRU diagnostics, sensor calibration, structural repair protocols and return-to-service documentation.'],
     ['phase' => 'Instructor', 'title' => 'Instructor and assessor', 'desc' => 'Train-the-trainer, assessment design and the evidence file that keeps a capability alive after handover.'],
 ];
 
 $FAQ = [
     [
-        'q' => 'What is EPiTEK\u2019s role in East Africa?',
-        'a' => 'EPiTEK Solutions is the regional support arm for the STM portfolio in East Africa: distribution, integration, training and lifecycle support for aviation and unmanned systems. Partnership and authorisation statements are supported by documentation on request during procurement.',
+        'q' => 'What does EPiTEK actually do?',
+        'a' => 'We support aviation and air-force fleets in East Africa: mission software and avionics integration, uncrewed systems support, command and surveillance integration, and depot-level sustainment with training.',
     ],
     [
         'q' => 'Which countries are covered?',
-        'a' => 'The regional footprint covers Kenya, Uganda, Tanzania, Rwanda and Ethiopia. Delivery models combine regional coordination, in-country engineering support and depot-level maintenance.',
+        'a' => 'Kenya, Uganda, Tanzania, Rwanda and Ethiopia, coordinated from a single programme office in Nairobi.',
     ],
     [
-        'q' => 'Can EPiTEK support an existing fleet rather than a new acquisition?',
-        'a' => 'Yes. Sustainment, avionics diagnostics, calibration, spare-parts management and training can be contracted independently of a new platform purchase.',
+        'q' => 'Can you support a fleet you did not supply?',
+        'a' => 'Yes, subject to technical assessment and access to the necessary documentation, test equipment and spares. An initial inspection establishes what is realistic.',
     ],
     [
         'q' => 'How are export controls handled?',
-        'a' => 'Every engagement is screened against national sovereign acquisition rules, end-user requirements and dual-use export authorisations before a technical data sheet or demonstration is released.',
+        'a' => 'Every engagement is screened against national acquisition rules, end-user requirements and dual-use authorisation before technical material or a demonstration is released.',
+    ],
+];
+
+$COMPANY = [
+    'eyebrow' => 'The company',
+    'title'   => 'A regional engineering team, not a catalogue',
+    'lead'    => 'EPiTEK Solutions supports aviation and air-force fleets across East Africa. Our work is maintenance, integration and training — delivered close to the aircraft rather than from another continent.',
+    'body'    => [
+        'The company was formed around a simple observation: equipment arrives, but the capability to keep it serviceable often does not. Documentation goes missing, calibration capability is absent, and the first failure waits weeks for a part.',
+        'We are structured to close that gap. One programme office holds the requirement, the integration engineering and the sustainment obligation, so a customer is not left coordinating three suppliers during a fault.',
+    ],
+    'list' => [
+        'Aviation engineers and instructors based in the region',
+        'Integration into the fleet and infrastructure already in service',
+        'Documentation and competency records retained by the receiving unit',
     ],
 ];

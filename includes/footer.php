@@ -36,33 +36,32 @@
     <div class="Foot_Top">
       <div class="Foot_Brand">
         <img src="<?= e(asset('assets/img/epitek-logo-white.svg')) ?>" alt="<?= e(SITE_NAME) ?>" width="186" height="30" loading="lazy" decoding="async">
-        <p class="Foot_Desc">Regional support arm for STM in East Africa: aviation mission software, avionics integration, crew training and depot sustainment.</p>
+        <p class="Foot_Desc">Aviation and air-force engineering, integration, training and depot sustainment across East Africa.</p>
 
         <div class="Foot_Badges" aria-label="Standards referenced">
           <span>ICAO</span>
           <span>EUROCONTROL</span>
           <span>NATO-INTEROPERABLE</span>
           <span>ISO 9001-ALIGNED</span>
-          <span>STM PORTFOLIO</span>
         </div>
       </div>
 
       <nav class="Foot_Col" aria-label="Capabilities">
-        <h3>Operational domains</h3>
-        <a href="<?= e(url('/#domain-air')) ?>">Air force &amp; unmanned systems</a>
-        <a href="<?= e(url('/#domain-aviation')) ?>">Aviation software &amp; avionics</a>
-        <a href="<?= e(url('/#domain-cyber')) ?>">Command &amp; surveillance</a>
-        <a href="<?= e(url('/#domain-support')) ?>">Depot &amp; sustainment</a>
-        <a href="<?= e(url('/#portfolio')) ?>">Technology portfolio</a>
+        <h3>Capabilities</h3>
+        <?php foreach ($CAPABILITIES as $cap): ?>
+        <a href="<?= e(url($cap['path'])) ?>"><?= e($cap['name']) ?></a>
+        <?php endforeach; ?>
+        <a href="<?= e(url('/capabilities')) ?>">All capabilities</a>
       </nav>
 
-      <nav class="Foot_Col" aria-label="Company">
-        <h3>Programmes &amp; hubs</h3>
-        <a href="<?= e(url('/distributor-integration')) ?>">Distributor hub</a>
-        <a href="<?= e(url('/partnerships-stm')) ?>">Partnership</a>
-        <a href="<?= e(url('/services')) ?>">Training &amp; services</a>
-        <a href="<?= e(url('/services#support-desk')) ?>">Support desk</a>
-        <a href="<?= e(url('/apply')) ?>">Apply for training</a>
+      <nav class="Foot_Col" aria-label="Services">
+        <h3>Services</h3>
+        <a href="<?= e(url('/services')) ?>">All services</a>
+        <a href="<?= e(url('/services/support-desk')) ?>">Support desk</a>
+        <a href="<?= e(url('/training')) ?>">Training pathway</a>
+        <a href="<?= e(url('/standards')) ?>">Standards &amp; compliance</a>
+        <a href="<?= e(url('/about')) ?>">About EPiTEK</a>
+        <a href="<?= e(url('/distributor-integration')) ?>">Logistics hub</a>
         <a href="<?= e(url('/contact')) ?>">Contact</a>
       </nav>
 

@@ -82,10 +82,46 @@ require __DIR__ . '/includes/header.php';
       </div>
 
       <div class="Hero_Viz">
-        <div class="MediaCard">
-          <span class="MediaTag">EAST AFRICA · EA-01</span>
-          <img src="<?= e(url('assets/img/coverage-map.svg')) ?>" alt="Regional coverage map with hubs at Nairobi, Kampala, Dodoma, Kigali and Addis Ababa" width="900" height="760" decoding="async">
-          <div class="MediaCard_Cap"><span><b>5 states</b> · coordinated from Nairobi</span><span>NOT TO SCALE</span></div>
+        <div class="Globe" id="hero-globe">
+          <div class="Globe_Header">
+            <div class="Globe_Header_Left">
+              <span class="Globe_LiveTitle">Regional hubs</span>
+            </div>
+            <div class="Globe_Header_Right">
+              <span class="Globe_HudTag">Schematic · not to scale</span>
+            </div>
+          </div>
+
+          <div class="Globe_Frame" aria-label="Illustrative map of regional hubs and the links between them">
+            <img class="Globe_Poster" src="<?= e(url('assets/img/coverage-map.svg')) ?>" alt="Regional network coverage" width="900" height="760" decoding="async">
+            <div class="Globe_Tip" hidden>
+              <div class="Globe_Tip_Header">
+                <span class="Globe_Tip_City">Nairobi</span>
+                <span class="Globe_Tip_Country">Kenya</span>
+              </div>
+              <div class="Globe_Tip_Role">Regional coordination</div>
+            </div>
+          </div>
+
+          <div class="Globe_Controls" aria-label="Focus a regional hub">
+            <span class="Globe_Controls_Label">Focus a hub:</span>
+            <div class="Globe_Capitals">
+              <button type="button" class="Globe_CapBtn is-active" data-cap="nairobi" title="Focus Nairobi">Nairobi</button>
+              <button type="button" class="Globe_CapBtn" data-cap="kampala" title="Focus Kampala">Kampala</button>
+              <button type="button" class="Globe_CapBtn" data-cap="dodoma" title="Focus Dodoma">Dodoma</button>
+              <button type="button" class="Globe_CapBtn" data-cap="kigali" title="Focus Kigali">Kigali</button>
+              <button type="button" class="Globe_CapBtn" data-cap="addis" title="Focus Addis Ababa">Addis Ababa</button>
+              <button type="button" class="Globe_CapBtn" data-cap="juba" title="Focus Juba">Juba</button>
+              <button type="button" class="Globe_CapBtn" data-cap="mogadishu" title="Focus Mogadishu">Mogadishu</button>
+            </div>
+          </div>
+
+          <div class="Globe_Bar">
+            <span class="Globe_Hint">
+              <i class="Dot Dot--pulse" aria-hidden="true"></i> Drag to rotate · Select a hub to focus
+            </span>
+            <span class="Globe_Coord">Illustration · regional context</span>
+          </div>
         </div>
       </div>
     </div>
@@ -119,7 +155,7 @@ require __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<section class="Section Section--alt" aria-labelledby="Model_T">
+<section class="Section" aria-labelledby="Model_T">
   <div class="Wrap">
     <div class="Split">
       <div class="Split_Body">

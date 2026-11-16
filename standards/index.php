@@ -58,7 +58,7 @@ require dirname(__DIR__) . '/includes/header.php';
   </div>
 </section>
 
-<section class="Section Section--alt" aria-labelledby="Exp_T">
+<section class="Section" aria-labelledby="Exp_T">
   <div class="Wrap">
     <div class="Split">
       <div class="Split_Body">

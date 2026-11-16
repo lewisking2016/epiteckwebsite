@@ -58,8 +58,11 @@ function detail_render(array $item, string $nav, string $sectionLabel, string $s
   </div>
 </section>
 
-<?php foreach (($item['sections'] ?? []) as $i => $section): ?>
-<section class="Section<?= $i % 2 === 1 ? ' Section--alt' : '' ?>" aria-labelledby="S<?= $i ?>_T">
+<?php
+$detailSections = $item['sections'] ?? [];
+$detailLast = count($detailSections) - 1;
+foreach ($detailSections as $i => $section): ?>
+<section class="Section<?= ($i % 2 === 1 && $i < $detailLast) ? ' Section--alt' : '' ?>" aria-labelledby="S<?= $i ?>_T">
   <div class="Wrap">
     <div class="Split">
       <div class="Split_Body">

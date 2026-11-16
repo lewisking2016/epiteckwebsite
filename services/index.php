@@ -65,7 +65,7 @@ require dirname(__DIR__) . '/includes/header.php';
   </div>
 </section>
 
-<section class="Section Section--alt" aria-labelledby="Faq_T">
+<section class="Section" aria-labelledby="Faq_T">
   <div class="Wrap">
     <div class="Head">
       <span class="Eyebrow">Direct answers</span>

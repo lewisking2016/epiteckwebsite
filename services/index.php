@@ -22,8 +22,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Services</span>
       </nav>
       <span class="Eyebrow">Services</span>
-      <h1>Five services that keep a fleet flying</h1>
-      <p class="PageHero_Lead">Maintenance, training, support and advisory work, each scoped in writing and closed with a record the receiving unit keeps.</p>
+      <h1><?= e(t('services.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('services.lead')) ?></p>
       <div class="PageHero_Act">
         <a class="Btn Btn--light" href="<?= e(url('/contact')) ?>">Discuss a requirement <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="Btn Btn--ghost-light" href="<?= e(url('/training')) ?>">Training pathway</a>
@@ -36,8 +36,8 @@ require dirname(__DIR__) . '/includes/header.php';
   <div class="Wrap">
     <div class="Head">
       <span class="Eyebrow">Service catalogue</span>
-      <h2 id="Svc_T">Choose a service</h2>
-      <p class="Head_B">Every service has its own page with the scope, what is included and how it is delivered.</p>
+      <h2 id="Svc_T"><?= e(t('services.h2')) ?></h2>
+      <p class="Head_B"><?= e(t('services.lead2')) ?></p>
     </div>
 
     <div class="SvcList">

@@ -30,8 +30,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Logistics &amp; integration</span>
       </nav>
       <span class="Eyebrow">Logistics &amp; integration</span>
-      <h1>From clearance to commissioned system</h1>
-      <p class="PageHero_Lead">Getting equipment into the country is the easy part. Making it work with the sensors, radios and command posts already in service is where programmes usually stall.</p>
+      <h1><?= e(t('logistics.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('logistics.lead')) ?></p>
     </div>
   </div>
 </section>

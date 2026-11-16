@@ -22,8 +22,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Training</span>
       </nav>
       <span class="Eyebrow">Training</span>
-      <h1>A pathway, not a single course</h1>
-      <p class="PageHero_Lead">Four role-based tracks take a cohort from standards awareness to instructor sign-off, each closing with an individual competency file.</p>
+      <h1><?= e(t('training.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('training.lead')) ?></p>
       <div class="PageHero_Act">
         <a class="Btn Btn--light" href="<?= e(url('/apply')) ?>">Apply for a place <svg class="Ico Ico--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="Btn Btn--ghost-light" href="<?= e(url('/services')) ?>">All services</a>

@@ -22,8 +22,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Standards</span>
       </nav>
       <span class="Eyebrow">Standards &amp; compliance</span>
-      <h1>Standards are the baseline. Evidence is the deliverable.</h1>
-      <p class="PageHero_Lead">“Aligned” is not “certified”. We keep the distinction visible and hand over the evidence file an audit team will ask for.</p>
+      <h1><?= e(t('standards.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('standards.lead')) ?></p>
     </div>
   </div>
 </section>

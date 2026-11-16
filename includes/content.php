@@ -1,9 +1,15 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/content_store.php';
+require_once __DIR__ . '/text.php';
+
 /**
  * Editorial content, kept separate from markup so it can be reviewed safely.
  * One page = one subject. Long-form material lives on its own page.
+ *
+ * The arrays below are the defaults. Anything edited in the console is stored
+ * in the `content` table and applied at the bottom of this file.
  */
 
 $CAPABILITIES = [
@@ -312,3 +318,38 @@ $COMPANY = [
         'Documentation and competency records retained by the receiving unit',
     ],
 ];
+
+/* ------------------------------------------------------------------ overrides
+ * Keep a pristine copy for the editor's "reset to default", then apply any
+ * text saved in the console. Nothing here runs a query when the table is empty.
+ */
+$CAPABILITIES_DEFAULT = $CAPABILITIES;
+$SERVICES_DEFAULT     = $SERVICES;
+$FAQ_DEFAULT          = $FAQ;
+$COMPANY_DEFAULT      = $COMPANY;
+
+foreach ($CAPABILITIES as $i => $cap) {
+    $CAPABILITIES[$i]['name']    = c('cap.' . $cap['slug'] . '.name', (string) $cap['name']);
+    $CAPABILITIES[$i]['tagline'] = c('cap.' . $cap['slug'] . '.tagline', (string) $cap['tagline']);
+    $CAPABILITIES[$i]['summary'] = c('cap.' . $cap['slug'] . '.summary', (string) $cap['summary']);
+    $CAPABILITIES[$i]['intro']   = c('cap.' . $cap['slug'] . '.intro', (string) $cap['intro']);
+}
+
+foreach ($SERVICES as $i => $svc) {
+    $SERVICES[$i]['title']   = c('svc.' . $svc['slug'] . '.title', (string) $svc['title']);
+    $SERVICES[$i]['summary'] = c('svc.' . $svc['slug'] . '.summary', (string) $svc['summary']);
+    $SERVICES[$i]['intro']   = c('svc.' . $svc['slug'] . '.intro', (string) $svc['intro']);
+}
+
+foreach ($FAQ as $i => $item) {
+    $n = $i + 1;
+    $FAQ[$i]['q'] = c('faq.' . $n . '.q', (string) $item['q']);
+    $FAQ[$i]['a'] = c('faq.' . $n . '.a', (string) $item['a']);
+}
+
+$COMPANY['title'] = c('comp.title', (string) $COMPANY['title']);
+$COMPANY['lead']  = c('comp.lead', (string) $COMPANY['lead']);
+
+foreach ($COMPANY['body'] as $i => $paragraph) {
+    $COMPANY['body'][$i] = c('comp.p' . ($i + 1), (string) $paragraph);
+}

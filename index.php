@@ -53,15 +53,15 @@ require __DIR__ . '/includes/header.php';
       <div class="Hero_Txt">
         <div class="Hero_Badge">
           <span class="Hero_Badge_Beacon" aria-hidden="true"></span>
-          <span class="Hero_Badge_Text">AVIATION &amp; AIR-FORCE SUPPORT · EAST AFRICA</span>
+          <span class="Hero_Badge_Text"><?= e(t('home.badge')) ?></span>
         </div>
 
         <h1 class="Hero_H1" id="Hero_T">
-          Aviation and air-force support, <span class="Hl">delivered in region</span>
+          <?= e(t('home.h1_a')) ?> <span class="Hl"><?= e(t('home.h1_hl')) ?></span>
         </h1>
 
         <p class="Hero_Lead">
-          We keep East African fleets serviceable: mission software and avionics integration, uncrewed systems support, command integration, training and depot sustainment.
+          <?= e(t('home.lead')) ?>
         </p>
 
         <div class="Hero_Act">
@@ -132,8 +132,8 @@ require __DIR__ . '/includes/header.php';
   <div class="Wrap">
     <div class="Head">
       <span class="Eyebrow">Capabilities</span>
-      <h2 id="Domains_T">Four areas. Four pages.</h2>
-      <p class="Head_B">Each area is its own conversation, so each has its own page with the scope and the delivery model.</p>
+      <h2 id="Domains_T"><?= e(t('home.cap_h2')) ?></h2>
+      <p class="Head_B"><?= e(t('home.cap_lead')) ?></p>
     </div>
 
     <div class="Grid Grid--4">
@@ -160,8 +160,8 @@ require __DIR__ . '/includes/header.php';
     <div class="Split">
       <div class="Split_Body">
         <span class="Eyebrow">The operating model</span>
-        <h2 id="Model_T">One programme office, from requirement to overhaul</h2>
-        <p>An air force does not buy software, a sensor and a spare part in isolation. It buys availability — the aircraft serviceable on the day the tasking arrives, with the documentation to prove it.</p>
+        <h2 id="Model_T"><?= e(t('home.model_h2')) ?></h2>
+        <p><?= e(t('home.model_p')) ?></p>
         <ul class="Split_List">
           <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Engineers and instructors based in the region, not flown in per project.</li>
           <li><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Integration into the fleet you already operate.</li>

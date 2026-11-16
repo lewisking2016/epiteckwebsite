@@ -310,6 +310,7 @@ function nav_counts(): array
     $counts = [
         'enquiries'    => db_value("SELECT COUNT(*) FROM enquiries WHERE status NOT IN ('won','lost')"),
         'applications' => db_value("SELECT COUNT(*) FROM applications WHERE status NOT IN ('won','lost','enrolled','declined')"),
+        'visits'       => function_exists('visit_unseen') ? visit_unseen() : 0,
     ];
     return $counts;
 }

@@ -90,6 +90,26 @@ function schema_tables(): array
         created_at $now
     )$tail";
 
+    // Editorial overrides. Pages fall back to their built-in text when a key is absent.
+    $statements[] = "CREATE TABLE IF NOT EXISTS content (
+        id $id,
+        ckey VARCHAR(120) NOT NULL UNIQUE,
+        cvalue TEXT NOT NULL,
+        updated_at DATETIME NULL,
+        updated_by INT NULL
+    )$tail";
+
+    // One row per public page view, used by the console's visit notifications.
+    $statements[] = "CREATE TABLE IF NOT EXISTS visits (
+        id $id,
+        path VARCHAR(190) NOT NULL,
+        referrer VARCHAR(190) NOT NULL DEFAULT '',
+        ua VARCHAR(190) NOT NULL DEFAULT '',
+        ip_hash CHAR(64) NOT NULL DEFAULT '',
+        seen INTEGER NOT NULL DEFAULT 0,
+        created_at $now
+    )$tail";
+
     return $statements;
 }
 
@@ -103,6 +123,8 @@ function schema_indexes(): array
         'CREATE INDEX idx_applications_status ON applications (status)',
         'CREATE INDEX idx_applications_created ON applications (created_at)',
         'CREATE INDEX idx_notes_subject ON notes (subject_type, subject_id)',
+        'CREATE INDEX idx_visits_created ON visits (created_at)',
+        'CREATE INDEX idx_visits_seen ON visits (seen)',
     ];
 }
 

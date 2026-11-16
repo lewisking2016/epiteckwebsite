@@ -260,3 +260,36 @@ To change an answer, edit the array in `includes/bot.php`; the markup and the ch
 
 A dismissible cookie notice appears once (dismissal stored in `localStorage`, never sent anywhere).
 It links to `/cookies`; there is no consent gate because the only cookie is strictly necessary.
+
+## 14. Console: editing the page text
+
+Every page reads its headline, intro and list copy through `t('key')` or a field on the
+arrays in `includes/content.php`. The built-in text is the default; the console stores only
+what an editor changes, in the `content` table (`ckey`, `cvalue`).
+
+- **Console → Site content** groups the fields by page: Home, Capabilities hub, Services hub,
+  Training, Standards, Contact, Apply, Logistics, About, each capability, each service and the FAQ.
+- **Saving** writes one row per changed key. Empty a field, or press **Reset**, to delete the
+  override and return to the shipped wording — so nothing is ever lost permanently.
+- **Defaults live in code**: page copy in `includes/text.php`, structured lists in
+  `includes/content.php`. Change them there if the shipped wording itself should change.
+- If the `content` table or the database is missing, pages fall back to the defaults and still
+  render — the store never takes a page down.
+
+## 15. Console: visit notifications
+
+`visit_record()` in `includes/visit_log.php` is called once from the public footer. It stores one
+row per page view in `visits` (path, referring host, browser string, hashed address) and skips
+bots, crawlers, monitor requests, assets and anything under `/epiadmin`.
+
+- **Console → Visits** lists recent views, 24-hour / 7-day totals and the most viewed pages.
+- The **Visits** item in the console menu shows an unread badge; *Mark all read* clears it.
+- Addresses are stored as a salted SHA-256 hash, never as plain IPs. No cookies, no third-party
+  analytics, and the logging is best-effort so a locked table cannot break a page.
+
+## 16. Creating tables after an upgrade
+
+**Console → Upgrade** checks the expected tables and creates any that are missing with
+`run_schema()`, which is idempotent. Use it after pulling a version that adds a table (for
+example `content` and `visits`); it never alters or deletes existing rows. The same check is
+available from the command line as `php tools/migrate.php`.

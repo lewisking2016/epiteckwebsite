@@ -152,8 +152,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Apply</span>
       </nav>
       <span class="Eyebrow">Training &amp; briefings</span>
-      <h1>Apply for a place, or request a briefing</h1>
-      <p class="PageHero_Lead">One form for two things: an individual applying for a training track, and an organisation asking for a capability briefing or proposal. Applications are screened before a place or a date is confirmed.</p>
+      <h1><?= e(t('apply.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('apply.lead')) ?></p>
     </div>
   </div>
 </section>

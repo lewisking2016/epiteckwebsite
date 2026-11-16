@@ -250,8 +250,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Contact</span>
       </nav>
       <span class="Eyebrow">Secure enterprise enquiry</span>
-      <h1>Start a technical conversation</h1>
-      <p class="PageHero_Lead">Tell us the operating problem, the environment and the timeline. A regional technical lead will respond with the right data sheet, briefing or SLA scope — not a generic brochure.</p>
+      <h1><?= e(t('contact.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('contact.lead')) ?></p>
       <div class="PageHero_Meta">
         <span><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Response target: one working day</span>
         <span><svg class="Ico" aria-hidden="true"><use href="#i-check"/></svg> Eligibility screening applies</span>

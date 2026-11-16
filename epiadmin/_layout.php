@@ -4,6 +4,7 @@ declare(strict_types=1);
 /** Shared chrome, icons and small view components for the console. */
 
 require_once dirname(__DIR__) . '/includes/repository.php';
+require_once dirname(__DIR__) . '/includes/visit_log.php';
 
 /** Inline icon from the console sprite. */
 function ai(string $name, string $class = ''): string
@@ -25,6 +26,9 @@ function admin_sprite(): void
   <symbol id="a-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.2"/><path d="M15.6 15.6L20 20"/></g></symbol>
   <symbol id="a-arrow" viewBox="0 0 24 24"><path d="M5 12h13M12.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="a-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="a-edit" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 20h4l9.5-9.5a2.1 2.1 0 00-3-3L5 17z"/><path d="M13.5 6.5l3 3"/></g></symbol>
+  <symbol id="a-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.6v2.2M12 18.2v2.2M4.6 12H6.8M17.2 12h2.2M6.7 6.7l1.6 1.6M15.7 15.7l1.6 1.6M17.3 6.7l-1.6 1.6M8.3 15.7l-1.6 1.6"/></g></symbol>
+  <symbol id="a-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g></symbol>
 </svg>
     <?php
 }
@@ -37,6 +41,9 @@ function admin_head(string $title, string $active, array $user): void
         'enquiries'    => ['label' => 'Enquiries', 'href' => admin_url('enquiries.php'), 'icon' => 'inbox', 'count' => $counts['enquiries']],
         'applications' => ['label' => 'Applications', 'href' => admin_url('applications.php'), 'icon' => 'file', 'count' => $counts['applications']],
         'activity'     => ['label' => 'Activity', 'href' => admin_url('activity.php'), 'icon' => 'pulse'],
+        'content'      => ['label' => 'Site content', 'href' => admin_url('content.php'), 'icon' => 'edit'],
+        'visits'       => ['label' => 'Visits', 'href' => admin_url('visits.php'), 'icon' => 'eye', 'count' => $counts['visits']],
+        'upgrade'      => ['label' => 'Upgrade', 'href' => admin_url('upgrade.php'), 'icon' => 'gear'],
     ];
     $initial = strtoupper(mb_substr((string) ($user['name'] ?? 'U'), 0, 1));
     $flashes = admin_flash_take();

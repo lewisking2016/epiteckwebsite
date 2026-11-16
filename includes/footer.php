@@ -135,6 +135,8 @@
   </div>
 </aside>
 
+<?php require_once __DIR__ . '/visit_log.php'; visit_record(); ?>
+
 <script src="<?= e(asset('assets/js/main.js')) ?>" defer></script>
 <script src="<?= e(asset('assets/js/bot.js')) ?>" defer></script>
 </body>

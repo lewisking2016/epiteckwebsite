@@ -22,8 +22,8 @@ require dirname(__DIR__) . '/includes/header.php';
         <a href="<?= e(url('/')) ?>">Home</a><span aria-hidden="true">/</span><span>Capabilities</span>
       </nav>
       <span class="Eyebrow">Four areas, one team</span>
-      <h1>What we support</h1>
-      <p class="PageHero_Lead">Each area has its own page, because each one is a different conversation. Start with the one that matches your requirement.</p>
+      <h1><?= e(t('capabilities.h1')) ?></h1>
+      <p class="PageHero_Lead"><?= e(t('capabilities.lead')) ?></p>
     </div>
   </div>
 </section>
@@ -32,8 +32,8 @@ require dirname(__DIR__) . '/includes/header.php';
   <div class="Wrap">
     <div class="Head">
       <span class="Eyebrow">Capability areas</span>
-      <h2 id="Cap_T">Pick the area you are working on</h2>
-      <p class="Head_B">Engineering, training and sustainment run underneath all four. The difference is the platform and the operational question.</p>
+      <h2 id="Cap_T"><?= e(t('capabilities.h2')) ?></h2>
+      <p class="Head_B"><?= e(t('capabilities.lead2')) ?></p>
     </div>
 
     <div class="Grid Grid--2">

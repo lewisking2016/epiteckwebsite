@@ -41,7 +41,7 @@ function admin_head(string $title, string $active, array $user): void
         'enquiries'    => ['label' => 'Enquiries', 'href' => admin_url('enquiries.php'), 'icon' => 'inbox', 'count' => $counts['enquiries']],
         'applications' => ['label' => 'Applications', 'href' => admin_url('applications.php'), 'icon' => 'file', 'count' => $counts['applications']],
         'activity'     => ['label' => 'Activity', 'href' => admin_url('activity.php'), 'icon' => 'pulse'],
-        'content'      => ['label' => 'Site content', 'href' => admin_url('content.php'), 'icon' => 'edit'],
+        'pages'        => ['label' => 'Pages', 'href' => admin_url('pages.php'), 'icon' => 'edit'],
         'visits'       => ['label' => 'Visits', 'href' => admin_url('visits.php'), 'icon' => 'eye', 'count' => $counts['visits']],
         'upgrade'      => ['label' => 'Upgrade', 'href' => admin_url('upgrade.php'), 'icon' => 'gear'],
     ];

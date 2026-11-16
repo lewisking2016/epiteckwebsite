@@ -7,33 +7,46 @@ require_once dirname(__DIR__) . '/includes/content_fields.php';
 
 $user = admin_require();
 $canWrite = admin_can_write($user);
-$returnTo = admin_url('content.php');
+
+$pageId = (string) ($_GET['page'] ?? '');
+$group = content_group($pageId);
+
+if ($group === null) {
+    redirect(admin_url('pages.php'));
+}
+
+$returnTo = admin_url('content.php?page=' . rawurlencode($group['id']));
+$groupKeys = array_column($group['fields'], 'key');
 
 if (is_post()) {
     if (!$canWrite) {
-        admin_flash('err', 'Your role can view the console but not change content.');
+        admin_flash('err', 'Your role can view this page but not change it.');
     } elseif (!csrf_valid($_POST['csrf'] ?? null)) {
         admin_flash('err', 'Your session expired. Reload and try again.');
     } else {
         $fields = content_field_keys();
+        $labels = [];
+        foreach ($fields as $key => $field) {
+            $labels[$key] = $field['label'];
+        }
 
         try {
             if (isset($_POST['reset_key'])) {
                 $key = (string) $_POST['reset_key'];
-                if (isset($fields[$key])) {
+                if (in_array($key, $groupKeys, true)) {
                     content_reset($key);
                     audit('content.reset', 'content', 0, ['key' => $key]);
-                    admin_flash('ok', 'Restored the built-in text for “' . $fields[$key]['label'] . '”.');
+                    admin_flash('ok', 'Restored the original text.');
                 }
             } else {
                 $changed = 0;
                 foreach ((array) ($_POST['field'] ?? []) as $key => $value) {
                     $key = (string) $key;
-                    if (!isset($fields[$key])) {
+                    if (!in_array($key, $groupKeys, true)) {
                         continue;
                     }
                     $value = trim((string) $value);
-                    $default = (string) $fields[$key]['default'];
+                    $default = (string) ($fields[$key]['default'] ?? '');
 
                     // Empty, or identical to the shipped text: drop the override.
                     if ($value === '' || $value === $default) {
@@ -52,12 +65,12 @@ if (is_post()) {
                     $changed++;
                 }
 
-                audit('content.update', 'content', 0, ['fields' => $changed]);
-                admin_flash('ok', $changed === 0 ? 'No changes to save.' : $changed . ' field' . ($changed === 1 ? '' : 's') . ' updated.');
+                audit('content.update', 'content', 0, ['page' => $group['id'], 'fields' => $changed]);
+                admin_flash('ok', $changed === 0 ? 'No changes to save.' : $changed . ' field' . ($changed === 1 ? '' : 's') . ' updated and live.');
             }
         } catch (Throwable $e) {
             error_log('epiadmin content: ' . $e->getMessage());
-            admin_flash('err', 'Could not save: the content table is not ready. Open Console → Upgrade to create it.');
+            admin_flash('err', 'Could not save: the content table is not ready. Open Upgrade to create it.');
         }
     }
 
@@ -65,13 +78,15 @@ if (is_post()) {
 }
 
 $user = admin_current() ?? $user;
-$groups = content_field_groups();
 
-admin_head('Site content', 'content', $user);
+admin_head($group['label'], 'pages', $user);
 admin_page_head(
-    'Site content',
-    'The words on the public pages. Empty a field, or use Reset, to restore the built-in text.',
-    '<a class="A_Btn A_Btn--sm" href="' . e(url('/')) . '" target="_blank" rel="noopener">View site</a>'
+    $group['label'],
+    'Edit the words on this page. Empty a field, or press Reset, to restore the built-in text.',
+    '<div style="display:flex;gap:8px">'
+    . '<a class="A_Btn A_Btn--sm" href="' . e(admin_url('pages.php')) . '">All pages</a>'
+    . '<a class="A_Btn A_Btn--sm" href="' . e(url($group['path'])) . '" target="_blank" rel="noopener">View page</a>'
+    . '</div>'
 );
 ?>
 
@@ -82,45 +97,44 @@ admin_page_head(
 <form class="A_Form" method="post" action="<?= e($returnTo) ?>">
   <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
 
-  <?php foreach ($groups as $group => $fields): ?>
-    <section class="A_Panel" style="margin-bottom:18px">
-      <div class="A_Panel_H">
-        <h2 class="A_Panel_T"><?= e((string) $group) ?></h2>
-      </div>
-      <div class="A_Detail_B">
-        <?php foreach ($fields as $field): ?>
-          <?php $edited = content_has($field['key']); ?>
-          <div class="A_Field">
-            <label class="A_Label" for="f-<?= e($field['key']) ?>">
-              <?= e($field['label']) ?>
-              <?php if ($edited): ?><span class="Pill Pill--ok">edited</span><?php endif; ?>
-            </label>
+  <section class="A_Panel">
+    <div class="A_Panel_H">
+      <h2 class="A_Panel_T"><?= e($group['label']) ?></h2>
+      <span class="A_Note"><?= e($group['path']) ?></span>
+    </div>
+    <div class="A_Detail_B">
+      <?php foreach ($group['fields'] as $field): ?>
+        <?php $edited = content_has($field['key']); ?>
+        <div class="A_Field">
+          <label class="A_Label" for="f-<?= e($field['key']) ?>">
+            <?= e($field['label']) ?>
+            <?php if ($edited): ?><span class="Pill Pill--ok">edited</span><?php endif; ?>
+          </label>
 
-            <?php if ($field['type'] === 'textarea'): ?>
-              <textarea class="A_Input" id="f-<?= e($field['key']) ?>" name="field[<?= e($field['key']) ?>]" rows="3"<?= $canWrite ? '' : ' readonly' ?>><?= e(c($field['key'], $field['default'])) ?></textarea>
-            <?php else: ?>
-              <input class="A_Input" id="f-<?= e($field['key']) ?>" type="text" name="field[<?= e($field['key']) ?>]" value="<?= e(c($field['key'], $field['default'])) ?>"<?= $canWrite ? '' : ' readonly' ?>>
-            <?php endif; ?>
+          <?php if ($field['type'] === 'textarea'): ?>
+            <textarea class="A_Input" id="f-<?= e($field['key']) ?>" name="field[<?= e($field['key']) ?>]" rows="4"<?= $canWrite ? '' : ' readonly' ?>><?= e(c($field['key'], $field['default'])) ?></textarea>
+          <?php else: ?>
+            <input class="A_Input" id="f-<?= e($field['key']) ?>" type="text" name="field[<?= e($field['key']) ?>]" value="<?= e(c($field['key'], $field['default'])) ?>"<?= $canWrite ? '' : ' readonly' ?>>
+          <?php endif; ?>
 
-            <?php if ($edited && $canWrite): ?>
-              <p class="A_Hint">
-                Built-in text: <?= e($field['default']) ?>
-                <button class="A_Btn A_Btn--sm" type="submit" name="reset_key" value="<?= e($field['key']) ?>" formnovalidate>Reset</button>
-              </p>
-            <?php endif; ?>
-          </div>
-        <?php endforeach; ?>
-      </div>
-    </section>
-  <?php endforeach; ?>
+          <?php if ($edited && $canWrite): ?>
+            <p class="A_Hint">
+              Original: <?= e($field['default']) ?>
+              <button class="A_Btn A_Btn--sm" type="submit" name="reset_key" value="<?= e($field['key']) ?>" formnovalidate>Reset</button>
+            </p>
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </section>
 
   <?php if ($canWrite): ?>
-    <div class="A_Panel">
+    <section class="A_Panel">
       <div class="A_Detail_B" style="display:flex;gap:12px;align-items:center;justify-content:flex-end">
-        <span class="A_Note">Changes go live as soon as you save.</span>
+        <span class="A_Note">Saved text appears on the public page immediately.</span>
         <button class="A_Btn A_Btn--primary" type="submit" name="action" value="save">Save changes</button>
       </div>
-    </div>
+    </section>
   <?php endif; ?>
 </form>
 

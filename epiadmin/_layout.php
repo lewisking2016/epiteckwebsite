@@ -45,6 +45,10 @@ function admin_head(string $title, string $active, array $user): void
         'visits'       => ['label' => 'Visits', 'href' => admin_url('visits.php'), 'icon' => 'eye', 'count' => $counts['visits']],
         'upgrade'      => ['label' => 'Upgrade', 'href' => admin_url('upgrade.php'), 'icon' => 'gear'],
     ];
+    // Shared with admin_foot(), which renders the mobile tab bar.
+    $GLOBALS['A_NAV'] = $nav;
+    $GLOBALS['A_ACTIVE'] = $active;
+
     $initial = strtoupper(mb_substr((string) ($user['name'] ?? 'U'), 0, 1));
     $flashes = admin_flash_take();
     ?><!DOCTYPE html>
@@ -62,6 +66,13 @@ function admin_head(string $title, string $active, array $user): void
 <body class="A">
 <?php admin_sprite(); ?>
 <a class="A_Skip" href="#A_Main">Skip to content</a>
+
+<header class="A_Top">
+  <img class="A_Top_Logo" src="<?= e(asset('assets/img/epitek-logo-white.svg')) ?>" alt="EPiTEK" width="112" height="18">
+  <span class="A_Top_Title"><?= e($title) ?></span>
+  <span class="A_Top_Me" aria-hidden="true"><?= e($initial) ?></span>
+</header>
+
 <div class="A_Shell">
   <aside class="A_Side">
     <a class="A_Brand" href="<?= e(admin_url('index.php')) ?>">
@@ -122,6 +133,38 @@ function admin_foot(): void
     <p class="A_Foot_Note">EPiTEK Console · <?= e(SITE_DOMAIN) ?> · times shown in UTC · session ends when you sign out.</p>
   </main>
 </div>
+
+<?php
+$tabs = $GLOBALS['A_NAV'] ?? [];
+$activeTab = $GLOBALS['A_ACTIVE'] ?? '';
+$primary = ['overview', 'enquiries', 'applications', 'pages', 'visits'];
+$secondary = array_diff_key($tabs, array_flip($primary));
+?>
+<nav class="A_Tabs" aria-label="Console sections">
+  <?php foreach ($primary as $key): ?>
+    <?php if (!isset($tabs[$key])) { continue; } $item = $tabs[$key]; ?>
+    <a class="A_Tab<?= $key === $activeTab ? ' is-on' : '' ?>" href="<?= e($item['href']) ?>"<?= $key === $activeTab ? ' aria-current="page"' : '' ?>>
+      <?= ai($item['icon']) ?>
+      <span><?= e($item['label']) ?></span>
+      <?php if (!empty($item['count'])): ?><i class="A_Tab_Dot" aria-label="new"></i><?php endif; ?>
+    </a>
+  <?php endforeach; ?>
+
+  <details class="A_More">
+    <summary class="A_Tab"><?= ai('grid') ?><span>More</span></summary>
+    <div class="A_More_Sheet">
+      <?php foreach ($secondary as $key => $item): ?>
+        <a href="<?= e($item['href']) ?>"<?= $key === $activeTab ? ' aria-current="page"' : '' ?>><?= ai($item['icon']) ?> <?= e($item['label']) ?></a>
+      <?php endforeach; ?>
+      <a href="<?= e(admin_url('password.php')) ?>"><?= ai('key') ?> Security</a>
+      <a href="<?= e(url('/')) ?>" target="_blank" rel="noopener"><?= ai('external') ?> View site</a>
+      <form method="post" action="<?= e(admin_url('logout.php')) ?>">
+        <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
+        <button type="submit"><?= ai('logout') ?> Sign out</button>
+      </form>
+    </div>
+  </details>
+</nav>
 </body>
 </html>
 <?php

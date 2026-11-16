@@ -1324,3 +1324,49 @@ a { color: var(--accent-ink); }
 .Why_N, .SvcRow_N, .SupportCard_H, .DomainBar_A, .Nav_A.is-active,
 .SLAStep_V, .MediaCard_Cap b, .AsideCard a { color: var(--accent-ink); }
 .Eyebrow--light, .Band .Eyebrow, .PreCta .Eyebrow { color: var(--sky-soft); }
+
+/* ------------------------------------------------------------ phone polish */
+@media (max-width: 760px) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: clip; }
+  p, li { line-height: 1.66; }
+
+  /* Filter chips become a swipeable bar, as on a native app */
+  .DomainBar_C { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 2px; margin-inline: -2px; }
+  .DomainBar_C::-webkit-scrollbar { display: none; }
+  .DChip { min-height: 36px; display: inline-flex; align-items: center; padding: 8px 13px; white-space: nowrap; }
+
+  /* Every footer link is a comfortable thumb target */
+  .Foot_Col a, .Foot_Links a { min-height: 40px; display: inline-flex; align-items: center; }
+
+  /* Breadcrumbs scroll instead of wrapping under the title */
+  .Crumb { overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+  .Crumb::-webkit-scrollbar { display: none; }
+
+  /* Globe: smaller frame, horizontal hub strip */
+  .Globe_Frame { height: 300px; }
+  .Globe_Capitals { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .Globe_Capitals::-webkit-scrollbar { display: none; }
+  .Globe_CapBtn { min-height: 34px; white-space: nowrap; }
+
+  /* Wide tables scroll inside the frame rather than the page */
+  .Table_Scroll { -webkit-overflow-scrolling: touch; }
+  .Table { min-width: 440px; }
+
+  .PageHero_Meta span { font-size: 0.84rem; }
+  .Hero_Pill { font-size: 0.78rem; }
+  .MediaCard_Cap { gap: 6px; }
+}
+
+@media (max-width: 430px) {
+  .Globe_Frame { height: 260px; }
+  .Section { padding-block: 40px; }
+  .PageHero { padding-block: 26px 30px; }
+  .SvcRow_Ico { width: 36px; height: 36px; }
+}
+
+/* Touch devices: hover styling should not stick after a tap */
+@media (hover: none) {
+  .Card:hover { transform: none; }
+  .Card_L:hover, .Brief_L:hover { text-decoration: none; }
+}

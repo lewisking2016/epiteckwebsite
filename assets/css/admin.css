@@ -448,6 +448,108 @@ a.A_Seg:hover { border-color: rgba(32, 126, 176, 0.4); background: #f1f8fc; }
   .A_Auth_Card { padding: 22px; border-radius: 18px; }
 }
 
+/* ------------------------------------------------------------------ app shell
+ * Phone view: no sidebar. A compact top bar carries the brand and the current
+ * screen, and a fixed tab bar at the bottom behaves like a native app.
+ */
+.A_Top, .A_Tabs { display: none; }
+
+@media (max-width: 880px) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { overflow-x: clip; }
+
+  .A_Side { display: none; }
+
+  .A_Top {
+    position: sticky; top: 0; z-index: 40;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    background: rgba(15, 26, 44, 0.97);
+    -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #dbe6f3;
+  }
+  .A_Top_Logo { width: 104px; height: auto; flex: 0 0 auto; }
+  .A_Top_Title {
+    margin-left: auto; font: 650 12.5px/1.2 var(--f-sans, system-ui);
+    color: #cfe0f5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .A_Top_Me {
+    flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: rgba(63, 158, 210, 0.22); color: #e2edfa;
+    font-size: 11.5px; font-weight: 750;
+  }
+
+  .A_Main { padding: 16px 14px calc(96px + env(safe-area-inset-bottom, 0px)); }
+
+  /* Bottom tab bar */
+  .A_Tabs {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+    gap: 2px; padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px));
+    background: rgba(15, 26, 44, 0.97);
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+  }
+  .A_Tab {
+    position: relative; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 3px;
+    min-height: 52px; padding: 6px 2px; border-radius: 12px;
+    color: #8ea4c0; font-size: 10px; font-weight: 650; letter-spacing: 0.01em;
+    text-decoration: none; border: 0; background: none; cursor: pointer;
+  }
+  .A_Tab .AIco { width: 20px; height: 20px; }
+  .A_Tab.is-on { color: #ffffff; background: rgba(63, 158, 210, 0.18); }
+  .A_Tab_Dot {
+    position: absolute; top: 7px; right: calc(50% - 15px);
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #48b0e8; box-shadow: 0 0 0 2px rgba(15, 26, 44, 0.95);
+  }
+
+  .A_More { position: relative; }
+  .A_More > summary { list-style: none; }
+  .A_More > summary::-webkit-details-marker { display: none; }
+  .A_More_Sheet {
+    position: fixed; left: 10px; right: 10px;
+    bottom: calc(78px + env(safe-area-inset-bottom, 0px));
+    display: grid; gap: 2px; padding: 8px;
+    background: #17283f; border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px; box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+  }
+  .A_More_Sheet a, .A_More_Sheet button {
+    display: flex; align-items: center; gap: 10px; width: 100%;
+    min-height: 48px; padding: 0 12px; border-radius: 10px;
+    background: none; border: 0; text-align: left;
+    color: #dbe6f3; font: 600 14px/1.2 inherit; cursor: pointer;
+  }
+  .A_More_Sheet a:active, .A_More_Sheet button:active { background: rgba(63, 158, 210, 0.16); }
+
+  /* Cards and controls sized for thumbs */
+  .A_Panel { border-radius: 16px; }
+  .A_Detail_B { padding: 14px; }
+  .A_Panel_H { padding: 14px; }
+  .A_Btn { min-height: 44px; border-radius: 10px; }
+  .A_Input, .A_Select, .A_Textarea, input[type="text"], input[type="search"], input[type="email"], select, textarea { font-size: 16px; }
+  .A_Main .A_Btn--sm { min-height: 40px; }
+  .A_Table_Wrap { -webkit-overflow-scrolling: touch; overflow-x: auto; }
+  .A_Table { min-width: 620px; }
+  .A_DL--tight { gap: 0; }
+  .A_DL--tight dt { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-mute); }
+  .A_DL--tight dd { margin-bottom: 10px; }
+  .A_Head { gap: 10px; }
+  .A_Head_Aside { width: 100%; }
+  .A_Head_Aside .A_Btn { width: 100%; }
+}
+
+@media (max-width: 430px) {
+  .A_Top_Title { display: none; }
+  .A_Main { padding: 14px 12px calc(94px + env(safe-area-inset-bottom, 0px)); }
+  .A_H1 { font-size: 1.4rem; }
+  .A_Metric_V { font-size: 1.6rem; }
+  .A_Panel_H, .A_Detail_B { padding: 12px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

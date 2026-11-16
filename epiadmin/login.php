@@ -18,15 +18,24 @@ if (is_post()) {
 
     if (!csrf_valid($_POST['csrf'] ?? null)) {
         $error = 'Your session expired. Reload the page and try again.';
-    } elseif (admin_login($login, $password)) {
-        redirect(admin_url('index.php'));
     } else {
-        // Only failed attempts count toward the throttle, so normal sign-ins are never blocked.
-        $error = rate_limit('admin-login', 6, 900)
-            ? 'Those details do not match an account.'
-            : 'Too many failed attempts. Wait fifteen minutes and try again.';
+        try {
+            if (admin_login($login, $password)) {
+                redirect(admin_url('index.php'));
+            }
+
+            // Only failed attempts count toward the throttle, so normal sign-ins are never blocked.
+            $error = rate_limit('admin-login', 6, 900)
+                ? 'Those details do not match an account.'
+                : 'Too many failed attempts. Wait fifteen minutes and try again.';
+        } catch (Throwable $e) {
+            error_log('epiadmin sign-in: ' . $e->getMessage());
+            $error = admin_db_message($e);
+        }
     }
-    http_response_code(401);
+
+    // A database problem is a server fault, not a bad password.
+    http_response_code(str_contains($error, 'database') || str_contains($error, 'tables are missing') ? 503 : 401);
 }
 ?><!DOCTYPE html>
 <html lang="en-GB">

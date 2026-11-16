@@ -124,6 +124,32 @@ function admin_login(string $login, string $password): ?array
     return $user;
 }
 
+/**
+ * Turn a database failure during sign-in into an operator-readable message.
+ * An unconfigured or unmigrated database used to surface as a blank HTTP 500.
+ */
+function admin_db_message(Throwable $e): string
+{
+    $message = $e->getMessage();
+
+    if (stripos($message, 'no such table') !== false || stripos($message, "doesn't exist") !== false) {
+        return 'The console database exists but its tables are missing. Upload setup_config.php to the site root, open it with ?key=epitek-setup-2026, then delete it.';
+    }
+
+    if (
+        stripos($message, 'Access denied') !== false
+        || stripos($message, 'Unknown database') !== false
+        || stripos($message, 'Connection refused') !== false
+        || stripos($message, 'could not find driver') !== false
+        || stripos($message, 'SQLSTATE[HY000] [2002]') !== false
+        || stripos($message, 'unable to open database file') !== false
+    ) {
+        return 'The console cannot reach its database. Check the credentials in config/db.local.php, then reload this page.';
+    }
+
+    return 'The console could not sign you in because of a database error. The details are in the PHP error log.';
+}
+
 function admin_logout(): void
 {
     session_start_secure();
